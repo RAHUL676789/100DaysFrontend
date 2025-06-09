@@ -9,6 +9,15 @@ function App() {
   return (
     <>
     <Navbar/>
+    <div className='h-screen bg-amber-950 w-full'>
+
+    </div>
+    <div className='h-screen bg-amber-500 w-full'>
+
+    </div>
+    <div className='h-screen bg-amber-100 w-full'>
+
+    </div>
     </>
   )
 }

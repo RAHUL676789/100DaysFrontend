@@ -1,75 +1,66 @@
-import React, { useState } from 'react';
+
+
+import react ,{useState,useEffect} from "react"
 
 const Navbar = () => {
-  const [toggle, setToggle] = useState(false);
 
-  const navLinkAfterClass = `
-    relative pb-1 after:absolute after:h-0.5 after:left-0 after:bottom-0 
-    after:w-0 after:bg-teal-400 after:transition-all after:duration-300 hover:after:w-full 
-    text-white hover:text-gray-200 font-bold
-  `;
+const [lastScrollY, setlastScrollY] = useState(0);
+const [showNavbar, setshowNavbar] = useState(false);
+const [toggle, settoggle] = useState(false)
 
-  const handleCloseMenu = () => setToggle(false);
+useEffect(()=>{
+   console.log(window.scrollY)
+   const handleScroll = ()=>{
+       
+    if(window.scrollY > lastScrollY && window.scrollY > 50){
+   
+      setshowNavbar(true);
+    }else{
+      setshowNavbar(false);
+    
+    }
+
+    setlastScrollY(window.scrollY);
+   
+
+   }
+    window.addEventListener("scroll",handleScroll);
+
+    return ()=>window.removeEventListener("scroll",handleScroll);
+},[lastScrollY])
+
+let navLinkClass = "relative pb-1 hover:bg-teal-500 inline-block px-2 py-1 trasition-all duration-500 after:absolute after:w-0 after:h-0.5    after:left-0 after:bottom-0 after:bg-teal-500 hover:after:w-full after:transion-all after:duration-300 ";
 
   return (
-    <nav className="w-full font-sans bg-gray-900 fixed top-0 left-0 z-50">
-      <div className="flex justify-between items-center h-16 px-4 md:px-8">
-        <h2 className="text-2xl font-bold text-white">Logo</h2>
-
-        {/* Desktop Menu */}
-        <div className="hidden md:flex gap-6">
-          {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
-            <a
-              key={item}
-              href="#"
-              className={navLinkAfterClass}
-            >
-              {item}
-            </a>
-          ))}
-        </div>
-
-        {/* Mobile Menu Icon */}
-        <div className="md:hidden">
-          <button
-            onClick={() => setToggle(true)}
-            aria-label="Open Menu"
-            className="text-white text-2xl"
-          >
-            <i className="ri-menu-3-line"></i>
-          </button>
-        </div>
+    <nav className={`fixed top-0 transition-all duration-150 left-0 bg-gray-800 flex justify-around w-full h-16 py-4  ${!showNavbar ? "translate-y-0" :"-translate-y-full"}`}>
+      <h2 className="logo cursor-pointer text-2xl font-bold text-white">
+        Logo
+      </h2>
+      <div className={`destop-menu hidden w-[50%] md:flex text-white font-bold justify-between `}>
+        <a href="#" className={`${navLinkClass}`}>Home</a>
+        <a href="#" className={`${navLinkClass}`}>About</a>
+        <a href="#" className={`${navLinkClass}`}>Projects</a>
+        <a href="#" className={`${navLinkClass}`}>Skills</a>
+        <a href="#" className={`${navLinkClass}`}>Contacts</a>
       </div>
 
-      {/* Mobile Menu */}
-      <div
-        className={`absolute top-0 left-0 w-full py-4 bg-gray-900 flex flex-col items-center justify-center gap-6 transition-all duration-500 ease-in-out transform ${
-          toggle ? 'translate-y-0 opacity-100 pointer-events-auto' : '-translate-y-full opacity-0 pointer-events-none'
-        }`}
-      >
-        {/* Close Button */}
-        <button
-          onClick={handleCloseMenu}
-          aria-label="Close Menu"
-          className="absolute top-5 right-5 text-white text-2xl"
-        >
-          <i className="ri-close-line"></i>
-        </button>
-
-        {/* Mobile Links */}
-        {['Home', 'About', 'Projects', 'Skills', 'Contact'].map((item) => (
-          <a
-            key={item}
-            href="#"
-            onClick={handleCloseMenu}
-            className={navLinkAfterClass}
-          >
-            {item}
-          </a>
-        ))}
+      <div className="menu md:hidden">
+        <i onClick={()=>settoggle(true)} class="ri-menu-3-line text-2xl text-white font-bold cursor-pointer"></i>
       </div>
+
+      <div className={`mobil-menu absolute w-screen bg-gray-900 flex flex-col  left-0 top-0 justify-center items-center py-5 text-white gap-5 font-bold transition-all duration-700 ${toggle ? "translate-y-0 opacity-100" :"-translate-y-full opacity-0"}`}>
+        <i onClick={()=>settoggle(false)} class="ri-close-line absolute top-5 right-8 cursor-pointer text-2xl"></i>
+         <a href="#" className={`${navLinkClass}`}>Home</a>
+        <a href="#" className={`${navLinkClass}`}>About</a>
+        <a href="#" className={`${navLinkClass}`}>Projects</a>
+        <a href="#" className={`${navLinkClass}`}>Skills</a>
+        <a href="#" className={`${navLinkClass}`}>Contacts</a>
+
+      </div>
+
     </nav>
-  );
-};
+
+  )
+}
 
 export default Navbar;
