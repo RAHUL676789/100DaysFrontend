@@ -4,3 +4,7 @@
 /* *{
     overflow-x: hidden;
 } */
+
+.over::-webkit-scrollbar{
+    display: none;
+}
