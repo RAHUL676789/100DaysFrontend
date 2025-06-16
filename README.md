@@ -18,11 +18,11 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 |-----|----------------------------|-----------------------------------------|----------------------------------------------------------------------|
 | 1   | Responsive Navbar          | Flexbox, Mobile Nav, Tailwind            | [Day 1](./src/Compoents/Navbar.jsx)                             |
 | 2   | Accordion FAQ              | useState, Toggle Functionality, Mapping  | [Day 2](./src/Compoents/Darklight.jsx)                          |
-| 3   | Dark Mode Toggle           | Tailwind Dark Theme, Toggle State        | [Day 3](./src/Compoents/day3/Accordion.jsx)                     |
-| 4   | Simple Modal               | Conditional Rendering, Overlay, UX       | [Day 4](./src/Compoents/day4/Gallery.jsx)                              |
-| 5   | Responsive Image Gallery   | CSS Grid, Responsive Design              | [Day 5](./src/Compoents/day5/Modal.jsx)                       |
-| 6   | Scroll Animations (GSAP)   | GSAP Basics, Fade-In, Slide-In           | [Day 6](./src/Compoents/day6/Toast.jsx)                    |
-| 7   | Testimonial Slider + Drag | GSAP Animation, useSpring, Manual DnD    | [Day 7](./src/Compoents/day7/TestimonialSlider.jsx)                  |
+| 3   | Dark Mode Toggle           | Tailwind Dark Theme, Toggle State        | [Day 3](./src/Compoents/Day3/Accordion.jsx)                     |
+| 4   | Simple Modal               | Conditional Rendering, Overlay, UX       | [Day 4](./src/Compoents/Day4/Gallery.jsx)                              |
+| 5   | Responsive Image Gallery   | CSS Grid, Responsive Design              | [Day 5](./src/Compoents/Day5/Modal.jsx)                       |
+| 6   | Scroll Animations (GSAP)   | GSAP Basics, Fade-In, Slide-In           | [Day 6](./src/Compoents/Day6/Toast.jsx)                    |
+| 7   | Testimonial Slider + Drag | GSAP Animation, useSpring, Manual DnD    | [Day 7](./src/Compoents/Day7/TestimonialSlider.jsx)                  |
 
 ---
 
