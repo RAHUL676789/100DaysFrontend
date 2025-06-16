@@ -1,12 +1,32 @@
-# React + Vite
+# 💯 100 Days Frontend Challenge
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100 unique frontend components, UIs, or features over 100 days to level up my frontend development skills.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📌 Challenge Overview
 
-## Expanding the ESLint configuration
+- 🔥 **Goal:** Master HTML, CSS, JavaScript, React, and Tailwind by building real-world UI elements without relying on external component libraries.
+- 🧠 **Approach:** Learn by doing — practice one new concept every day.
+- 🚫 **Rule:** No use of external animation or UI libraries unless absolutely necessary. Focus is on writing clean, core logic using **vanilla JavaScript** and **React** only.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 📆 Progress Tracker
+
+| Day | Title                      | Focus Areas                      | Link                           |
+|-----|----------------------------|----------------------------------|--------------------------------|
+| 1   | Responsive Navbar          | Flexbox, Mobile Menu, Tailwind   | [Day 1](./Day_01)              |
+| 2   | Accordion FAQ              | useState, Toggle, JSX Mapping    | [Day 2](./Day_02)              |
+| 3   | Dark Mode Toggle           | Tailwind Dark Theme, LocalState  | [Day 3](./Day_03)              |
+| 4   | Simple Modal               | Portal, Visibility Toggle        | [Day 4](./Day_04)              |
+| 5   | Responsive Image Gallery   | Grid, Responsive Layout          | [Day 5](./Day_05)              |
+| 6   | Scroll Animations (GSAP)   | GSAP Basics, Fade/Slide In       | [Day 6](./Day_06)              |
+| 7   | Testimonial Slider         | GSAP + Drag, useEffect, Manual DnD | [Day 7](./Day_07)           |
+| ... | Coming soon...             |                                  |                                |
+
+---
+
+## 📁 Folder Structure
+
+/challenges/src/components/day1 to day 7
