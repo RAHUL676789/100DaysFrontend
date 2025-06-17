@@ -28,4 +28,29 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 ---
 
 ## 📁 Folder Structure
+100challenge/
+└── src/
+    └── components/
+        ├── 
+        │   ├── Navbar.jsx
+        │   └──
+        ├── 
+        │   ├── DarkLight 
+        │   └─
+        ├── day3/
+        │   └── Accordion.jsx
+            └── AccordionItem.jsx
+        ├── day4/
+        │   └── Gallery.jsx
+            └── Lazycard.jsx
+        ├── day5/
+        │   └── Modal.jsx
+        ├── day6/
+        │   └── Toast.jsx
+        ├── day7/
+        │   └── TestiMonialSlide.jsx
+        ├── day8/
+        │   └── MultiStepForm.jsx
+        └── ...
+
 
