@@ -3,6 +3,7 @@ import './App.css';
 import Modal from './Compoents/day5/Modal.jsx';
 import Toast from './Compoents/Day6/Toast.jsx';
 import Testimonialslider from './Compoents/Day7/TestimonialSlider.jsx';
+import MultiStepForm from './compoents/Day8/MultiStepForm.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -52,7 +53,7 @@ function App() {
 
   return (
     <div className='min-h-screen flex justify-center items-center flex-col bg-gray-300'>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-7 / TestiMonialSlider</h2>
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-8 / MultiStepForm </h2>
 
       {/* Modal Part */}
       {/* {isModalOpen && (
@@ -85,7 +86,8 @@ function App() {
           <Toast key={item.id} item={item} index={i} close={handleCloseToast} />
         ))}
       </div> */}
-      <Testimonialslider/>
+      {/* <Testimonialslider/> */}
+      <MultiStepForm/>
     </div>
   );
 }
