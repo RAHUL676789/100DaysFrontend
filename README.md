@@ -51,6 +51,10 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
         │   └── TestiMonialSlide.jsx
         ├── day8/
         │   └── MultiStepForm.jsx
+            └── Step1.jsx
+            └── Step2.jsx
+            └── Step3.jsx
+            └── Success.jsx
         └── ...
 
 
