@@ -24,6 +24,10 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 6   | Scroll Animations (GSAP)   | GSAP Basics, Fade-In, Slide-In           | [Day 6](./src/Compoents/Day6/Toast.jsx)                    |
 | 7   | Testimonial Slider + Drag | GSAP Animation, useSpring, Manual DnD    | [Day 7](./src/Compoents/Day7/TestimonialSlider.jsx)    
 | 8  | multiStep Form  | Animation ProgressBar   | [Day 8](./src/Compoents/Day8/MultiStepForm.jsx)                |
+| 9  | CustomDropDown   |     | [Day 9](./src/Compoents/Day9/CustomDropDown.jsx)                |
+
+| 10  | multiStep Form  | Animation ProgressBar   | [Day 8](./src/Compoents/Day10/CopyClipBoard.jsx)                |
+
 
 ---
 
@@ -55,6 +59,13 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
             └── Step2.jsx
             └── Step3.jsx
             └── Success.jsx
-        └── ...
+        └── day9/
+        │   └── CustomDropDown.jsx
+        ├── day10/
+           └── CopyClipBoard.jsx
+            └── ToastNoti.jsx
+
+           
+          
 
 
