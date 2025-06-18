@@ -16,56 +16,46 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 
 | Day | Title                      | Focus Areas                             | Link                                                                 |
 |-----|----------------------------|-----------------------------------------|----------------------------------------------------------------------|
-| 1   | Responsive Navbar          | Flexbox, Mobile Nav, Tailwind            | [Day 1](./src/Compoents/Navbar.jsx)                             |
-| 2   | Accordion FAQ              | useState, Toggle Functionality, Mapping  | [Day 2](./src/Compoents/Darklight.jsx)                          |
-| 3   | Dark Mode Toggle           | Tailwind Dark Theme, Toggle State        | [Day 3](./src/Compoents/Day3/Accordion.jsx)                     |
-| 4   | Simple Modal               | Conditional Rendering, Overlay, UX       | [Day 4](./src/Compoents/Day4/Gallery.jsx)                              |
-| 5   | Responsive Image Gallery   | CSS Grid, Responsive Design              | [Day 5](./src/Compoents/Day5/Modal.jsx)                       |
-| 6   | Scroll Animations (GSAP)   | GSAP Basics, Fade-In, Slide-In           | [Day 6](./src/Compoents/Day6/Toast.jsx)                    |
-| 7   | Testimonial Slider + Drag | GSAP Animation, useSpring, Manual DnD    | [Day 7](./src/Compoents/Day7/TestimonialSlider.jsx)    
-| 8  | multiStep Form  | Animation ProgressBar   | [Day 8](./src/Compoents/Day8/MultiStepForm.jsx)                |
-| 9  | CustomDropDown   |     | [Day 9](./src/Compoents/Day9/CustomDropDown.jsx)                |
-
-| 10  | multiStep Form  | Animation ProgressBar   | [Day 8](./src/Compoents/Day10/CopyClipBoard.jsx)                |
-
+| 1   | Responsive Navbar          | Flexbox, Mobile Nav, Tailwind            | [Day 1](./src/components/Navbar.jsx)                                |
+| 2   | Accordion FAQ              | useState, Toggle Functionality, Mapping  | [Day 2](./src/components/Day2/Accordion.jsx)                        |
+| 3   | Dark Mode Toggle           | Tailwind Dark Theme, Toggle State        | [Day 3](./src/components/Day3/DarkLight.jsx)                        |
+| 4   | Simple Modal               | Conditional Rendering, Overlay, UX       | [Day 4](./src/components/Day4/Modal.jsx)                            |
+| 5   | Responsive Image Gallery   | CSS Grid, Responsive Design              | [Day 5](./src/components/Day5/Gallery.jsx)                          |
+| 6   | Scroll Animations (GSAP)   | GSAP Basics, Fade-In, Slide-In           | [Day 6](./src/components/Day6/Toast.jsx)                            |
+| 7   | Testimonial Slider + Drag | GSAP Animation, useSpring, Manual DnD    | [Day 7](./src/components/Day7/TestimonialSlider.jsx)               |
+| 8   | MultiStep Form             | Animated ProgressBar, useState Steps     | [Day 8](./src/components/Day8/MultiStepForm.jsx)                    |
+| 9   | Custom Dropdown            | useState, Toggle, Custom Select          | [Day 9](./src/components/Day9/CustomDropDown.jsx)                   |
+| 10  | Copy to Clipboard + Limit  | Clipboard API, Auto-Height, Toast        | [Day 10](./src/components/Day10/CopyClipBoard.jsx)                  |
 
 ---
 
 ## 📁 Folder Structure
+
 100challenge/
 └── src/
-    └── components/
-        ├── 
-        │   ├── Navbar.jsx
-        │   └──
-        ├── 
-        │   ├── DarkLight 
-        │   └─
-        ├── day3/
-        │   └── Accordion.jsx
-            └── AccordionItem.jsx
-        ├── day4/
-        │   └── Gallery.jsx
-            └── Lazycard.jsx
-        ├── day5/
-        │   └── Modal.jsx
-        ├── day6/
-        │   └── Toast.jsx
-        ├── day7/
-        │   └── TestiMonialSlide.jsx
-        ├── day8/
-        │   └── MultiStepForm.jsx
-            └── Step1.jsx
-            └── Step2.jsx
-            └── Step3.jsx
-            └── Success.jsx
-        └── day9/
-        │   └── CustomDropDown.jsx
-        ├── day10/
-           └── CopyClipBoard.jsx
-            └── ToastNoti.jsx
-
-           
-          
-
-
+└── components/
+├── Navbar.jsx
+├── Day2/
+│ └── Accordion.jsx
+├── Day3/
+│ └── DarkLight.jsx
+├── Day4/
+│ └── Modal.jsx
+├── Day5/
+│ └── Gallery.jsx
+│ └── Lazycard.jsx
+├── Day6/
+│ └── Toast.jsx
+├── Day7/
+│ └── TestimonialSlider.jsx
+├── Day8/
+│ └── MultiStepForm.jsx
+│ └── Step1.jsx
+│ └── Step2.jsx
+│ └── Step3.jsx
+│ └── Success.jsx
+├── Day9/
+│ └── CustomDropDown.jsx
+└── Day10/
+└── CopyClipBoard.jsx
+└── ToastNoti.jsx
