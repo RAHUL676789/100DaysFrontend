@@ -5,6 +5,7 @@ import Toast from './Compoents/Day6/Toast.jsx';
 import Testimonialslider from './Compoents/Day7/TestimonialSlider.jsx';
 import MultiStepForm from './compoents/Day8/MultiStepForm.jsx';
 import CustomDropDown from './compoents/Day9/CustomDropDown.jsx';
+import CopyClipBoard from './compoents/Day10/CopyClipBoard.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -88,7 +89,7 @@ function App() {
         ))}
       </div> */}
       {/* <Testimonialslider/> */}
-      <CustomDropDown/>
+      <CopyClipBoard/>
     </div>
   );
 }
