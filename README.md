@@ -26,7 +26,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 8   | MultiStep Form             | Animated ProgressBar, useState Steps     | [Day 8](./src/components/Day8/MultiStepForm.jsx)                    |
 | 9   | Custom Dropdown            | useState, Toggle, Custom Select          | [Day 9](./src/components/Day9/CustomDropDown.jsx)                   |
 | 10  | Copy to Clipboard + Limit  | Clipboard API, Auto-Height, Toast        | [Day 10](./src/components/Day10/CopyClipBoard.jsx)                  |
-
+| 11  | Copy to Clipboard + Limit  | Clipboard API, Auto-Height, Toast        | [Day 11](./src/components/Day11/ImageSlider.jsx)  
 ---
 
 ## 📁 Folder Structure
@@ -59,3 +59,5 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── Day10/
 └── CopyClipBoard.jsx
 └── ToastNoti.jsx
+└── Day11/
+└── ImageSlider.jsx
