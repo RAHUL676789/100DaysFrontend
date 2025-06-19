@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
 import './App.css';
-import Modal from './Compoents/day5/Modal.jsx';
-import Toast from './Compoents/Day6/Toast.jsx';
-import Testimonialslider from './Compoents/Day7/TestimonialSlider.jsx';
-import MultiStepForm from './compoents/Day8/MultiStepForm.jsx';
-import CustomDropDown from './compoents/Day9/CustomDropDown.jsx';
-import CopyClipBoard from './compoents/Day10/CopyClipBoard.jsx';
+// import Modal from './Compoents/day5/Modal.jsx';
+// import Toast from './Compoents/Day6/Toast.jsx';
+// import Testimonialslider from './Compoents/Day7/TestimonialSlider.jsx';
+// import MultiStepForm from './compoents/Day8/MultiStepForm.jsx';
+// import CustomDropDown from './compoents/Day9/CustomDropDown.jsx';
+// import CopyClipBoard from './compoents/Day10/CopyClipBoard.jsx';
+import ImageSlider from './components/Day11/ImageSlider.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -89,7 +90,8 @@ function App() {
         ))}
       </div> */}
       {/* <Testimonialslider/> */}
-      <CopyClipBoard/>
+      {/* <CopyClipBoard/> */}
+      <ImageSlider/>
     </div>
   );
 }
