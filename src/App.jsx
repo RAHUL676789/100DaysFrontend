@@ -7,6 +7,10 @@ import './App.css';
 // import CustomDropDown from './compoents/Day9/CustomDropDown.jsx';
 // import CopyClipBoard from './compoents/Day10/CopyClipBoard.jsx';
 import ImageSlider from './components/Day11/ImageSlider.jsx';
+import Img2 from './components/Day11/ScrollImage.jsx';
+import ImageSlider3D from './components/Day11/ScrollImage.jsx';
+import FileUploader from './components/Day12/FileUploader.jsx';
+import PdfViewer from './components/Day12/PdfViewer.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -91,7 +95,11 @@ function App() {
       </div> */}
       {/* <Testimonialslider/> */}
       {/* <CopyClipBoard/> */}
-      <ImageSlider/>
+      {/* <ImageSlider/> */}
+      {/* <Img2/> */}
+      {/* <ImageSlider3D/> */}
+      <FileUploader/>
+      {/* <PdfViewer/> */}
     </div>
   );
 }
