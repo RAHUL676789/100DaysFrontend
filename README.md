@@ -27,6 +27,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 9   | Custom Dropdown            | useState, Toggle, Custom Select          | [Day 9](./src/components/Day9/CustomDropDown.jsx)                   |
 | 10  | Copy to Clipboard + Limit  | Clipboard API, Auto-Height, Toast        | [Day 10](./src/components/Day10/CopyClipBoard.jsx)                  |
 | 11  | Copy to Clipboard + Limit  | Clipboard API, Auto-Height, Toast        | [Day 11](./src/components/Day11/ImageSlider.jsx)  
+| 12  | Image & pdf prviewewr |        | [Day 12](./src/components/Day12/FileUploader.jsx) 
 ---
 
 ## 📁 Folder Structure
@@ -61,3 +62,5 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── ToastNoti.jsx
 └── Day11/
 └── ImageSlider.jsx
+└── Day12/
+└── FileUploader.jsx
