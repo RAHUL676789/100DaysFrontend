@@ -12,6 +12,7 @@ import ImageSlider3D from './components/Day11/ScrollImage.jsx';
 import FileUploader from './components/Day12/FileUploader.jsx';
 import PdfViewer from './components/Day12/PdfViewer.jsx';
 import TabSwitcher from './components/Day13/TabSwitcher.jsx';
+import ScrollProgressBar from './components/Day14/ScrollProgressBar.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -101,7 +102,8 @@ function App() {
       {/* <ImageSlider3D/> */}
       {/* <FileUploader/> */}
       {/* <PdfViewer/> */}
-      <TabSwitcher/>
+      {/* <TabSwitcher/> */}
+      <ScrollProgressBar/>
     </div>
   );
 }
