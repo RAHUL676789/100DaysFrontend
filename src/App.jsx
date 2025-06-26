@@ -11,6 +11,7 @@ import Img2 from './components/Day11/ScrollImage.jsx';
 import ImageSlider3D from './components/Day11/ScrollImage.jsx';
 import FileUploader from './components/Day12/FileUploader.jsx';
 import PdfViewer from './components/Day12/PdfViewer.jsx';
+import TabSwitcher from './components/Day13/TabSwitcher.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -60,7 +61,7 @@ function App() {
 
   return (
     <div className='min-h-screen flex justify-center items-center flex-col bg-gray-300'>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-9 / Custome-DropDown </h2>
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-13/ TabSwitcher </h2>
 
       {/* Modal Part */}
       {/* {isModalOpen && (
@@ -98,8 +99,9 @@ function App() {
       {/* <ImageSlider/> */}
       {/* <Img2/> */}
       {/* <ImageSlider3D/> */}
-      <FileUploader/>
+      {/* <FileUploader/> */}
       {/* <PdfViewer/> */}
+      <TabSwitcher/>
     </div>
   );
 }
