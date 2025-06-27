@@ -70,7 +70,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── FileUploader.jsx
 └── Day13/
 └── TabSwitcher.jsx
-└── Day12/
+└── Day14/
 └── ScrollProgress.jsx
-└── Day12/
+└── Day15/
 └── AutoFocusOtp.jsx
