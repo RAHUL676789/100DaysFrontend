@@ -28,6 +28,10 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 10  | Copy to Clipboard + Limit  | Clipboard API, Auto-Height, Toast        | [Day 10](./src/components/Day10/CopyClipBoard.jsx)                  |
 | 11  | Copy to Clipboard + Limit  | Clipboard API, Auto-Height, Toast        | [Day 11](./src/components/Day11/ImageSlider.jsx)  
 | 12  | Image & pdf prviewewr |        | [Day 12](./src/components/Day12/FileUploader.jsx) 
+| 13  | TabSwitcher |        | [Day 13](./src/components/Day13/TabSwitcher.jsx) 
+| 14  | ScrollProgressBar |        | [Day 14](./src/components/Day14/ScrollProgressBar.jsx) 
+| 15  | AutoFocusOtpFiller |        | [Day 15](./src/components/Day15/AutoFocusOtp.jsx) 
+---
 ---
 
 ## 📁 Folder Structure
@@ -64,3 +68,9 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── ImageSlider.jsx
 └── Day12/
 └── FileUploader.jsx
+└── Day13/
+└── TabSwitcher.jsx
+└── Day12/
+└── ScrollProgress.jsx
+└── Day12/
+└── AutoFocusOtp.jsx
