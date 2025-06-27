@@ -13,6 +13,7 @@ import FileUploader from './components/Day12/FileUploader.jsx';
 import PdfViewer from './components/Day12/PdfViewer.jsx';
 import TabSwitcher from './components/Day13/TabSwitcher.jsx';
 import ScrollProgressBar from './components/Day14/ScrollProgressBar.jsx';
+import AutoFocusOtp from './components/Day15/AutoFocusOtp.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -103,7 +104,8 @@ function App() {
       {/* <FileUploader/> */}
       {/* <PdfViewer/> */}
       {/* <TabSwitcher/> */}
-      <ScrollProgressBar/>
+      {/* <ScrollProgressBar/> */}
+      <AutoFocusOtp/>
     </div>
   );
 }
