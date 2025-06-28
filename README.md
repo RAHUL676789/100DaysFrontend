@@ -21,7 +21,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 3   | Dark Mode Toggle           | Tailwind Dark Theme, Toggle State        | [Day 3](./src/components/Day3/DarkLight.jsx)                        |
 | 4   | Simple Modal               | Conditional Rendering, Overlay, UX       | [Day 4](./src/components/Day4/Modal.jsx)                            |
 | 5   | Responsive Image Gallery   | CSS Grid, Responsive Design              | [Day 5](./src/components/Day5/Gallery.jsx)                          |
-| 6   | Scroll Animations (GSAP)   | GSAP Basics, Fade-In, Slide-In           | [Day 6](./src/components/Day6/Toast.jsx)                            |
+| 6   | Toast (GSAP)   | GSAP Basics, Fade-In, Slide-In           | [Day 6](./src/components/Day6/Toast.jsx)                            |
 | 7   | Testimonial Slider + Drag | GSAP Animation, useSpring, Manual DnD    | [Day 7](./src/components/Day7/TestimonialSlider.jsx)               |
 | 8   | MultiStep Form             | Animated ProgressBar, useState Steps     | [Day 8](./src/components/Day8/MultiStepForm.jsx)                    |
 | 9   | Custom Dropdown            | useState, Toggle, Custom Select          | [Day 9](./src/components/Day9/CustomDropDown.jsx)                   |
@@ -31,7 +31,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 13  | TabSwitcher |        | [Day 13](./src/components/Day13/TabSwitcher.jsx) 
 | 14  | ScrollProgressBar |        | [Day 14](./src/components/Day14/ScrollProgressBar.jsx) 
 | 15  | AutoFocusOtpFiller |        | [Day 15](./src/components/Day15/AutoFocusOtp.jsx) 
-| 16  | Tooltip |        | [Day 16](./src/components/Day15/Tooltip.jsx) 
+| 16  | Tooltip && OverLayModal |        | [Day 16](./src/components/Day15/Tooltip.jsx) 
 ---
 ---
 
