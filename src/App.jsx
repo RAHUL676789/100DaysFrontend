@@ -14,6 +14,8 @@ import PdfViewer from './components/Day12/PdfViewer.jsx';
 import TabSwitcher from './components/Day13/TabSwitcher.jsx';
 import ScrollProgressBar from './components/Day14/ScrollProgressBar.jsx';
 import AutoFocusOtp from './components/Day15/AutoFocusOtp.jsx';
+import Tooltip from './components/Day16/Tooltip.jsx';
+import OverLayModal from './components/Day16/OverLayModal.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -105,7 +107,9 @@ function App() {
       {/* <PdfViewer/> */}
       {/* <TabSwitcher/> */}
       {/* <ScrollProgressBar/> */}
-      <AutoFocusOtp/>
+      {/* <AutoFocusOtp/> */}
+      {/* <Tooltip/> */}
+      <OverLayModal/>
     </div>
   );
 }
