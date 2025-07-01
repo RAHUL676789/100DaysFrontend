@@ -17,6 +17,8 @@ import AutoFocusOtp from './components/Day15/AutoFocusOtp.jsx';
 import Tooltip from './components/Day16/Tooltip.jsx';
 import OverLayModal from './components/Day16/OverLayModal.jsx';
 import ToastCcntainer from './components/Day16/ToastCcntainer.jsx';
+// import ScrollGallery from './components/Day17/ScrollGaller.jsx';
+import QuizApp from './components/Day17/QuizApp.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -66,7 +68,7 @@ function App() {
 
   return (
     <div className='min-h-screen flex justify-center items-center flex-col bg-gray-300'>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-13/ TabSwitcher </h2>
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-13/ QuizApp </h2>
 
       {/* Modal Part */}
       {/* {isModalOpen && (
@@ -111,7 +113,9 @@ function App() {
       {/* <AutoFocusOtp/> */}
       {/* <Tooltip/> */}
       {/* <OverLayModal/> */}
-      <ToastCcntainer/>
+      {/* <ToastCcntainer/> */}
+      {/* <ScrollGallery/> */}
+      <QuizApp/>
     </div>
   );
 }
