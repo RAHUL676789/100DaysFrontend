@@ -31,7 +31,8 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 13  | TabSwitcher |        | [Day 13](./src/components/Day13/TabSwitcher.jsx) 
 | 14  | ScrollProgressBar |        | [Day 14](./src/components/Day14/ScrollProgressBar.jsx) 
 | 15  | AutoFocusOtpFiller |        | [Day 15](./src/components/Day15/AutoFocusOtp.jsx) 
-| 16  | Tooltip && OverLayModal |        | [Day 16](./src/components/Day15/Tooltip.jsx) 
+| 16  | Tooltip && OverLayModal |        | [Day 16](./src/components/Day16/Tooltip.jsx) 
+| 17  | QuizApp |        | [Day 16](./src/components/Day17/QuizApp.jsx) 
 ---
 ---
 
@@ -78,3 +79,6 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── Day16/
 └── Tooltip.jsx
 └── OverLayModal.jsx
+└── Day17/
+└── QuizApp.jsx
+
