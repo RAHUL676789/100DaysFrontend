@@ -18,7 +18,9 @@ import Tooltip from './components/Day16/Tooltip.jsx';
 import OverLayModal from './components/Day16/OverLayModal.jsx';
 import ToastCcntainer from './components/Day16/ToastCcntainer.jsx';
 // import ScrollGallery from './components/Day17/ScrollGaller.jsx';
+import Navbar from "./components/Navbar.jsx"
 import QuizApp from './components/Day17/QuizApp.jsx';
+import QuotesBox from './components/Day18/QuotesBox.jsx';
 
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
@@ -67,8 +69,8 @@ function App() {
   };
 
   return (
-    <div className='min-h-screen flex justify-center items-center flex-col bg-gray-300'>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-13/ QuizApp </h2>
+    <div className='min-h-[200vh] flex justify-center items-center flex-col bg-white'>
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-18/ Quotes </h2>
 
       {/* Modal Part */}
       {/* {isModalOpen && (
@@ -115,7 +117,10 @@ function App() {
       {/* <OverLayModal/> */}
       {/* <ToastCcntainer/> */}
       {/* <ScrollGallery/> */}
-      <QuizApp/>
+      {/* <QuizApp/> */}
+      {/* <Navbar/> */}
+      <QuotesBox/>
+      
     </div>
   );
 }
