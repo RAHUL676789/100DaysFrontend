@@ -33,6 +33,8 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 15  | AutoFocusOtpFiller |        | [Day 15](./src/components/Day15/AutoFocusOtp.jsx) 
 | 16  | Tooltip && OverLayModal |        | [Day 16](./src/components/Day16/Tooltip.jsx) 
 | 17  | QuizApp |        | [Day 16](./src/components/Day17/QuizApp.jsx) 
+| 18  | Quotes |        | [Day 16](./src/components/Day18/Quotes.jsx) 
+| 19  | AutoAccordion |        | [Day 16](./src/components/Day19/AutoAccordion.jsx) 
 ---
 ---
 
@@ -84,4 +86,8 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── Day18/
 └── Quotes.jsx
 └── Quotes.js
+└── Day19/
+└── AutoAccordion.jsx
+└── AutoAccordionItem.jsx
+└── TabContent.jsx
 
