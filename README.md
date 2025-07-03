@@ -81,4 +81,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── OverLayModal.jsx
 └── Day17/
 └── QuizApp.jsx
+└── Day18/
+└── Quotes.jsx
+└── Quotes.js
 
