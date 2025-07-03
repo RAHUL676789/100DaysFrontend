@@ -42,8 +42,8 @@ function Accordion() {
   }, [viewMore, visibleFaqs.length]);
 
   return (
-    <div className="bg-gray-900 w-screen min-h-screen py-5 px-6">
-      <h2 className="text-white text-3xl text-center mb-6 underline">#Day3 Accordion</h2>
+    <div className="bg-gray-400 w-screen min-h-screen py-5 px-6 overflow-auto no-scrollbar">
+      <h2 className="text-white text-3xl text-center mb-6 underline">#Day2 Accordion</h2>
 
       <div className="flex flex-col">
         <button

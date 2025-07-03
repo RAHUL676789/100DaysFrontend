@@ -21,7 +21,8 @@ import ToastCcntainer from './components/Day16/ToastCcntainer.jsx';
 import Navbar from "./components/Navbar.jsx"
 import QuizApp from './components/Day17/QuizApp.jsx';
 import QuotesBox from './components/Day18/QuotesBox.jsx';
-
+import Accordion from "./components/Day3/Accordion.jsx"
+import AutoAccordion from './components/Day19/AutoAccordion.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -69,8 +70,8 @@ function App() {
   };
 
   return (
-    <div className='min-h-[200vh] flex justify-center items-center flex-col bg-white'>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-18/ Quotes </h2>
+    <div className='h-screen flex justify-center items-center flex-col bg-white'>
+      {/* <h2 className='text-3xl font-bold text-center mb-4'>Day-18/ Quotes </h2> */}
 
       {/* Modal Part */}
       {/* {isModalOpen && (
@@ -119,7 +120,9 @@ function App() {
       {/* <ScrollGallery/> */}
       {/* <QuizApp/> */}
       {/* <Navbar/> */}
-      <QuotesBox/>
+      {/* <QuotesBox/> */}
+      {/* <Accordion/> */}
+      <AutoAccordion/>
       
     </div>
   );
