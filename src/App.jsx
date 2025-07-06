@@ -23,6 +23,7 @@ import QuizApp from './components/Day17/QuizApp.jsx';
 import QuotesBox from './components/Day18/QuotesBox.jsx';
 import Accordion from "./components/Day3/Accordion.jsx"
 import AutoAccordion from './components/Day19/AutoAccordion.jsx';
+import SidebarLayout from './components/Day20/SidebarLayout.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -122,7 +123,8 @@ function App() {
       {/* <Navbar/> */}
       {/* <QuotesBox/> */}
       {/* <Accordion/> */}
-      <AutoAccordion/>
+      {/* <AutoAccordion/> */}
+      <SidebarLayout/>
       
     </div>
   );
