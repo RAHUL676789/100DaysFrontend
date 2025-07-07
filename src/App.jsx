@@ -24,6 +24,8 @@ import QuotesBox from './components/Day18/QuotesBox.jsx';
 import Accordion from "./components/Day3/Accordion.jsx"
 import AutoAccordion from './components/Day19/AutoAccordion.jsx';
 import SidebarLayout from './components/Day20/SidebarLayout.jsx';
+import Gallery from "./components/Day4/Gallery.jsx"
+import StatsSection from './components/Day21/index.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -124,7 +126,9 @@ function App() {
       {/* <QuotesBox/> */}
       {/* <Accordion/> */}
       {/* <AutoAccordion/> */}
-      <SidebarLayout/>
+      {/* <SidebarLayout/> */}
+      {/* <Gallery/> */}
+      <StatsSection/>
       
     </div>
   );

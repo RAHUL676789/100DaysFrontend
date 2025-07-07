@@ -51,7 +51,7 @@ function LazyCard({imageUrl,title}){
 
         </div>)
       }
-
+      
     </div>
   )
 }
