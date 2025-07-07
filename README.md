@@ -32,9 +32,13 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 14  | ScrollProgressBar |        | [Day 14](./src/components/Day14/ScrollProgressBar.jsx) 
 | 15  | AutoFocusOtpFiller |        | [Day 15](./src/components/Day15/AutoFocusOtp.jsx) 
 | 16  | Tooltip && OverLayModal |        | [Day 16](./src/components/Day16/Tooltip.jsx) 
-| 17  | QuizApp |        | [Day 16](./src/components/Day17/QuizApp.jsx) 
-| 18  | Quotes |        | [Day 16](./src/components/Day18/Quotes.jsx) 
-| 19  | AutoAccordion |        | [Day 16](./src/components/Day19/AutoAccordion.jsx) 
+| 17  | QuizApp |        | [Day 17](./src/components/Day17/QuizApp.jsx) 
+| 18  | Quotes |        | [Day 18](./src/components/Day18/Quotes.jsx) 
+| 19  | AutoAccordion |        | [Day 19](./src/components/Day19/AutoAccordion.jsx) 
+---
+| 19  | Sidebar |        | [Day 20](./src/components/Day20/Sidebar.jsx) 
+| 19  | AnimatedCounter |        | [Day 21](./src/components/Day21/index.jsx) 
+---
 ---
 ---
 
@@ -90,4 +94,12 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── AutoAccordion.jsx
 └── AutoAccordionItem.jsx
 └── TabContent.jsx
+└── Day20/
+└── sidebar.jsx
+└── sidebarlayout.jsx
+└── Day21/ 
+└── index.jsx
+└── useCounter.js
+└── AnimatedCounter.jsx
+
 
