@@ -36,8 +36,9 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 18  | Quotes |        | [Day 18](./src/components/Day18/Quotes.jsx) 
 | 19  | AutoAccordion |        | [Day 19](./src/components/Day19/AutoAccordion.jsx) 
 ---
-| 19  | Sidebar |        | [Day 20](./src/components/Day20/Sidebar.jsx) 
-| 19  | AnimatedCounter |        | [Day 21](./src/components/Day21/index.jsx) 
+| 20  | Sidebar |        | [Day 20](./src/components/Day20/Sidebar.jsx) 
+| 21  | AnimatedCounter |        | [Day 21](./src/components/Day21/index.jsx) 
+| 22  | animatedGallery |        | [Day 22](./src/components/Day22/Gallery.jsx)
 ---
 ---
 ---
@@ -101,5 +102,10 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── index.jsx
 └── useCounter.js
 └── AnimatedCounter.jsx
+└── Day22/ 
+└── Gallery.jsx
+└── useScroll.js
+└── ImageCard.jsx
+└── galleryData.jsx
 
 
