@@ -15,7 +15,7 @@ import TabSwitcher from './components/Day13/TabSwitcher.jsx';
 import ScrollProgressBar from './components/Day14/ScrollProgressBar.jsx';
 import AutoFocusOtp from './components/Day15/AutoFocusOtp.jsx';
 import Tooltip from './components/Day16/Tooltip.jsx';
-import OverLayModal from './components/Day16/OverLayModal.jsx';
+// import OverLayModal from './components/Day16/OverLayModal.jsx';
 import ToastCcntainer from './components/Day16/ToastCcntainer.jsx';
 // import ScrollGallery from './components/Day17/ScrollGaller.jsx';
 import Navbar from "./components/Navbar.jsx"
@@ -24,8 +24,10 @@ import QuotesBox from './components/Day18/QuotesBox.jsx';
 import Accordion from "./components/Day3/Accordion.jsx"
 import AutoAccordion from './components/Day19/AutoAccordion.jsx';
 import SidebarLayout from './components/Day20/SidebarLayout.jsx';
-import Gallery from "./components/Day4/Gallery.jsx"
+// import Gallery from "./components/Day4/Gallery.jsx"
 import StatsSection from './components/Day21/index.jsx';
+import Modal from './components/day5/Modal.jsx';
+import Gallery from './components/Day22/Gallery.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -73,18 +75,15 @@ function App() {
   };
 
   return (
-    <div className='h-screen flex justify-center items-center flex-col bg-white'>
+    <div className=''>
       {/* <h2 className='text-3xl font-bold text-center mb-4'>Day-18/ Quotes </h2> */}
 
-      {/* Modal Part */}
-      {/* {isModalOpen && (
-        <Modal
-          close={handleModalopen}
-          title={"Do you want to delete"}
-          modalConfirm={modalConfirm}
-          content={"The content will be deleted permanently from your system"}
-        />
-      )} */}
+      {/* Modal Part
+       {isModalOpen && (
+         <Modal
+         
+         />
+       } */}
 
       {/* <div className="flex gap-5 justify-center mb-6">
         <button
@@ -128,7 +127,12 @@ function App() {
       {/* <AutoAccordion/> */}
       {/* <SidebarLayout/> */}
       {/* <Gallery/> */}
-      <StatsSection/>
+      {/* <StatsSection/> */}
+      <Gallery/>
+      {/* <Modal   close={handleModalopen}
+           title={"Do you want to delete"}
+           modalConfirm={modalConfirm}
+           content={"The content will be deleted permanently from your system"}/> */}
       
     </div>
   );

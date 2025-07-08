@@ -38,6 +38,7 @@ function LazyCard({imageUrl,title}){
 
 
 
+  
 
   return (
     <div  ref={ref} className=" p-5  break-inside-avoid">
