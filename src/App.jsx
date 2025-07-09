@@ -28,6 +28,8 @@ import SidebarLayout from './components/Day20/SidebarLayout.jsx';
 import StatsSection from './components/Day21/index.jsx';
 import Modal from './components/day5/Modal.jsx';
 import Gallery from './components/Day22/Gallery.jsx';
+import AudioPlayer from './components/Day22/AudioPlayer.jsx';
+import CanvasDraw from './components/Day23/CanvasDraw.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -76,7 +78,7 @@ function App() {
 
   return (
     <div className=''>
-      {/* <h2 className='text-3xl font-bold text-center mb-4'>Day-18/ Quotes </h2> */}
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-23/ CanvasDraw </h2>
 
       {/* Modal Part
        {isModalOpen && (
@@ -84,8 +86,8 @@ function App() {
          
          />
        } */}
-
-      {/* <div className="flex gap-5 justify-center mb-6">
+{/* 
+      <div className="flex gap-5 justify-center mb-6">
         <button
           className='border px-6 py-2 bg-green-600 text-white font-bold active:translate-y-0.5'
           onClick={() => showToast("success")}
@@ -98,7 +100,7 @@ function App() {
         >
           Error Toast
         </button>
-      </div> */}
+      </div>
 
       {/* Toast Stack */}
       {/* <div className="fixed top-5 right-5 flex flex-col gap-3 z-50">
@@ -106,34 +108,7 @@ function App() {
           <Toast key={item.id} item={item} index={i} close={handleCloseToast} />
         ))}
       </div> */}
-      {/* <Testimonialslider/> */}
-      {/* <CopyClipBoard/> */}
-      {/* <ImageSlider/> */}
-      {/* <Img2/> */}
-      {/* <ImageSlider3D/> */}
-      {/* <FileUploader/> */}
-      {/* <PdfViewer/> */}
-      {/* <TabSwitcher/> */}
-      {/* <ScrollProgressBar/> */}
-      {/* <AutoFocusOtp/> */}
-      {/* <Tooltip/> */}
-      {/* <OverLayModal/> */}
-      {/* <ToastCcntainer/> */}
-      {/* <ScrollGallery/> */}
-      {/* <QuizApp/> */}
-      {/* <Navbar/> */}
-      {/* <QuotesBox/> */}
-      {/* <Accordion/> */}
-      {/* <AutoAccordion/> */}
-      {/* <SidebarLayout/> */}
-      {/* <Gallery/> */}
-      {/* <StatsSection/> */}
-      <Gallery/>
-      {/* <Modal   close={handleModalopen}
-           title={"Do you want to delete"}
-           modalConfirm={modalConfirm}
-           content={"The content will be deleted permanently from your system"}/> */}
-      
+     <CanvasDraw/>
     </div>
   );
 }
