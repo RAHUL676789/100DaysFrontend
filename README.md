@@ -39,6 +39,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 20  | Sidebar |        | [Day 20](./src/components/Day20/Sidebar.jsx) 
 | 21  | AnimatedCounter |        | [Day 21](./src/components/Day21/index.jsx) 
 | 22  | animatedGallery |        | [Day 22](./src/components/Day22/Gallery.jsx)
+| 23  | canvasDraw |        | [Day 22](./src/components/Day23/CanvasDraw.jsx)
 ---
 ---
 ---
@@ -107,5 +108,7 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── useScroll.js
 └── ImageCard.jsx
 └── galleryData.jsx
+└── Day22/ 
+└── CanvasDraw.jsx
 
 
