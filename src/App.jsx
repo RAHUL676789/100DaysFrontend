@@ -30,6 +30,8 @@ import Modal from './components/day5/Modal.jsx';
 import Gallery from './components/Day22/Gallery.jsx';
 import AudioPlayer from './components/Day22/AudioPlayer.jsx';
 import CanvasDraw from './components/Day23/CanvasDraw.jsx';
+import TestimonialSlider from './components/Day7/TestimonialSlider.jsx';
+import AnnonatoreImage from './components/Day24/AnnonatoreImage.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -79,7 +81,7 @@ function App() {
   return (
     <div className=''>
       <h2 className='text-3xl font-bold text-center mb-4'>Day-23/ CanvasDraw </h2>
-
+        {/* <TestimonialSlider/> */}
       {/* Modal Part
        {isModalOpen && (
          <Modal
@@ -108,7 +110,8 @@ function App() {
           <Toast key={item.id} item={item} index={i} close={handleCloseToast} />
         ))}
       </div> */}
-     <CanvasDraw/>
+     {/* <CanvasDraw/> */}
+     <AnnonatoreImage/>
     </div>
   );
 }
