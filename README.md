@@ -40,6 +40,9 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 21  | AnimatedCounter |        | [Day 21](./src/components/Day21/index.jsx) 
 | 22  | animatedGallery |        | [Day 22](./src/components/Day22/Gallery.jsx)
 | 23  | canvasDraw |        | [Day 22](./src/components/Day23/CanvasDraw.jsx)
+| 24  | anonatorImage |        | [Day 22](./src/components/Day23/annonatoreImage.jsx)
+| 25  | imageStack,before after |        | [Day 22](./src/components/Day23/imageStack.jsx)
+---
 ---
 ---
 ---
@@ -110,5 +113,11 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 └── galleryData.jsx
 └── Day22/ 
 └── CanvasDraw.jsx
+└── Day23/ 
+└── canvas.jsx
+└── Day24/ 
+└── annonatorImage.jsx
+└── Day25/ 
+└── imageStack.jsx
 
 
