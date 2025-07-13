@@ -44,15 +44,15 @@ const CopyClipBoard = () => {
   }
 
   return (
-    <div className='bg-white flex flex-col justify-center items-center w-96 p-4'>
+    <div className='bg-white shadow-md shadow-gray-700 mx-auto rounded-lg flex flex-col justify-center items-center w-96 p-4'>
 
-      <div className={`fixed top-0 -translate-y-full ${isCopy ? "translate-y-5"  :"-translate-y-full"} transition-all duration-150`}>
+      <div className={`fixed top-0 -translate-y-full ${isCopy ? "translate-y-5"  :"-translate-y-full"} transition-all duration-150 `}>
         <ToastNoti />
       </div>
 
 
       <button onClick={handleCopy} className='ml-auto cursor-pointer active:translate-y-0.5'>copy <i className="ri-file-copy-fill"></i></button>
-      <textarea  ref={text} onChange={handleCharCount} name="" id="textarea" rows={2} cols={10} className='border w-full select-text outline-0 p-2 over min-h-[64px]'>
+      <textarea  ref={text} onChange={handleCharCount} name="" id="textarea" rows={2} cols={10} className='border w-full mx-auto select-text outline-0 p-2 over min-h-[64px]'>
 
       </textarea>
       <span className='self-end text-xs font-light'>{charCount}/{maxLimit}</span>

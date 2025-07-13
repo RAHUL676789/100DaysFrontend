@@ -32,6 +32,9 @@ import AudioPlayer from './components/Day22/AudioPlayer.jsx';
 import CanvasDraw from './components/Day23/CanvasDraw.jsx';
 import TestimonialSlider from './components/Day7/TestimonialSlider.jsx';
 import AnnonatoreImage from './components/Day24/AnnonatoreImage.jsx';
+import CopyClipBoard from './components/Day10/CopyClipBoard.jsx';
+import BeforeAfterImage from './components/Day25/BeforeAfterImage.jsx';
+import ImageStack from './components/Day25/ImageStack.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -80,7 +83,7 @@ function App() {
 
   return (
     <div className=''>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-23/ CanvasDraw </h2>
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-25/ BeforeAfterImage </h2>
         {/* <TestimonialSlider/> */}
       {/* Modal Part
        {isModalOpen && (
@@ -111,7 +114,10 @@ function App() {
         ))}
       </div> */}
      {/* <CanvasDraw/> */}
-     <AnnonatoreImage/>
+     {/* <AnnonatoreImage/> */}
+     {/* <CopyClipBoard/> */}
+     {/* <BeforeAfterImage/> */}
+     <ImageStack/>
     </div>
   );
 }
