@@ -36,10 +36,10 @@ const ImageStack = () => {
 
   const handlemouseMove = (e) => {
     if (!isDragging || dragIndex === null || !containerRef.current) return;
- 
+
     const rect = containerRef.current.getBoundingClientRect();
-     const x = e.clientX - rect.left - offsetRef.current.x
-     const  y =  e.clientY - rect.top - offsetRef.current.y
+    const x = e.clientX - rect.left - offsetRef.current.x
+    const y = e.clientY - rect.top - offsetRef.current.y
     const newPostion = [...postion];
     newPostion[dragIndex] = { x, y };
     setpostion(newPostion);
@@ -53,11 +53,11 @@ const ImageStack = () => {
 
 
     offsetRef.current = {
-    x: e.clientX - rect.left - postion[i].x,
-  y: e.clientY - rect.top - postion[i].y
+      x: e.clientX - rect.left - postion[i].x,
+      y: e.clientY - rect.top - postion[i].y
     }
 
-    console.log("postion")
+
 
   }
 
@@ -80,7 +80,7 @@ const ImageStack = () => {
               style={{
                 left: `${postion[i].x}px`,
                 top: `${postion[i].y}px`,
-                    zIndex: imageArray.length - i,
+                zIndex: imageArray.length - i,
               }} className='absolute select-none h-full w-full inset-0 rounded-lg'>
               <img src={item.img} className='h-full w-full object-cover rounded-lg' />
               <div className='absolute bg-black/30 inset-0  rounded-lg flex flex-col items-center justify-center text-white font-semibold'>
