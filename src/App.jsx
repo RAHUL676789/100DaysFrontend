@@ -35,6 +35,8 @@ import AnnonatoreImage from './components/Day24/AnnonatoreImage.jsx';
 import CopyClipBoard from './components/Day10/CopyClipBoard.jsx';
 import BeforeAfterImage from './components/Day25/BeforeAfterImage.jsx';
 import ImageStack from './components/Day25/ImageStack.jsx';
+import Offset from './components/Day26/PasswordGenerator.jsx';
+import PasswordGenerator from './components/Day26/PasswordGenerator.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -117,7 +119,10 @@ function App() {
      {/* <AnnonatoreImage/> */}
      {/* <CopyClipBoard/> */}
      {/* <BeforeAfterImage/> */}
-     <ImageStack/>
+     {/* <ImageStack/> */}
+     {/* <Offset/> */}
+     {/* <ImageSlider/> */}
+     <PasswordGenerator/>
     </div>
   );
 }
