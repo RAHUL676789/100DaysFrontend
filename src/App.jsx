@@ -85,7 +85,7 @@ function App() {
 
   return (
     <div className=''>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-25/ BeforeAfterImage </h2>
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-9/ image and pdfPReviewer </h2>
         {/* <TestimonialSlider/> */}
       {/* Modal Part
        {isModalOpen && (
@@ -122,7 +122,8 @@ function App() {
      {/* <ImageStack/> */}
      {/* <Offset/> */}
      {/* <ImageSlider/> */}
-     <PasswordGenerator/>
+     {/* <PasswordGenerator/> */}
+    <FileUploader/>
     </div>
   );
 }

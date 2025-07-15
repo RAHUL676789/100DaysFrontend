@@ -31,9 +31,9 @@ function FileUploader(){
      console.log(preview)
     return(
     
-    <div className="max-w-xl ">
+    <div className="max-w-xl mx-auto shadow-md shadow-gray-500  rounded-lg">
 
-        <div  onClick={()=>inputRef.current.click()} className="border  border-dashed rounded-lg px-5 py-7  w-full  mb-5 text-center">
+        <div  onClick={()=>inputRef.current.click()} className="border  border-dashed rounded-lg px-5 py-7  w-full  mb-5 text-center ">
               
           {file ? <p className="text-green-600">file uploded</p> : <p className="px-5 py-5 text-gray-800">upload or drag file </p>}
 
