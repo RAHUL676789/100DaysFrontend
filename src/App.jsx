@@ -37,6 +37,7 @@ import BeforeAfterImage from './components/Day25/BeforeAfterImage.jsx';
 import ImageStack from './components/Day25/ImageStack.jsx';
 import Offset from './components/Day26/PasswordGenerator.jsx';
 import PasswordGenerator from './components/Day26/PasswordGenerator.jsx';
+import StickyNotes from './components/Day27/StickyNotes.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -85,7 +86,7 @@ function App() {
 
   return (
     <div className=''>
-      <h2 className='text-3xl font-bold text-center mb-4'>Day-9/ image and pdfPReviewer </h2>
+      <h2 className='text-3xl font-bold text-center mb-4'>Day-27/ Sticky notes </h2>
         {/* <TestimonialSlider/> */}
       {/* Modal Part
        {isModalOpen && (
@@ -115,15 +116,8 @@ function App() {
           <Toast key={item.id} item={item} index={i} close={handleCloseToast} />
         ))}
       </div> */}
-     {/* <CanvasDraw/> */}
-     {/* <AnnonatoreImage/> */}
-     {/* <CopyClipBoard/> */}
-     {/* <BeforeAfterImage/> */}
-     {/* <ImageStack/> */}
-     {/* <Offset/> */}
-     {/* <ImageSlider/> */}
-     {/* <PasswordGenerator/> */}
-    <FileUploader/>
+      <StickyNotes/>
+ 
     </div>
   );
 }
