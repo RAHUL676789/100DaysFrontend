@@ -39,6 +39,7 @@ import Offset from './components/Day26/PasswordGenerator.jsx';
 import PasswordGenerator from './components/Day26/PasswordGenerator.jsx';
 import StickyNotes from './components/Day27/StickyNotes.jsx';
 import GoalTracker from './components/Day28/GoalTracker.jsx';
+import EditTable from './components/Day29/EditTable.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -118,7 +119,8 @@ function App() {
         ))}
       </div> */}
       {/* <StickyNotes/> */}
-      <GoalTracker/>
+      {/* <GoalTracker/> */}
+      <EditTable/>
  
     </div>
   );
