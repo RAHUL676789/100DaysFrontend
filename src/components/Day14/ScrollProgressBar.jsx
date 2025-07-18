@@ -8,7 +8,7 @@ const ScrollProgressBar = () => {
         console.log("helo")
         const container = scrollRef?.current;
 
-        console.log(container.scrollTop / (container.scrollHeight - container.clientHeight))
+      
         
       const scrollPercent = (container.scrollTop / (container.scrollHeight - container.clientHeight)) * 100;
       setprogressWidth(Math.ceil(scrollPercent));

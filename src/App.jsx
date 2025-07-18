@@ -120,7 +120,8 @@ function App() {
       </div> */}
       {/* <StickyNotes/> */}
       {/* <GoalTracker/> */}
-      <EditTable/>
+      {/* <EditTable/> */}
+      <ScrollProgressBar/>
  
     </div>
   );
