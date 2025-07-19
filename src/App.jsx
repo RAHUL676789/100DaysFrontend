@@ -40,6 +40,7 @@ import PasswordGenerator from './components/Day26/PasswordGenerator.jsx';
 import StickyNotes from './components/Day27/StickyNotes.jsx';
 import GoalTracker from './components/Day28/GoalTracker.jsx';
 import EditTable from './components/Day29/EditTable.jsx';
+import KanbanBoard from './components/Day30/KanbanBoard.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -121,7 +122,8 @@ function App() {
       {/* <StickyNotes/> */}
       {/* <GoalTracker/> */}
       {/* <EditTable/> */}
-      <ScrollProgressBar/>
+      {/* <ScrollProgressBar/> */}
+      <KanbanBoard/>
  
     </div>
   );
