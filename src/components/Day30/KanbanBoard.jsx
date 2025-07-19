@@ -1,62 +1,148 @@
-import React, { useState, useRef } from 'react'
-import KanbanCard from './KanbanCard'
+import React, { useState, useRef } from 'react';
+import KanbanCard from './KanbanCard';
 
 const KanbanBoard = () => {
-    const [Columns, setColumns] = useState({
-        todo: [],
-        inProgress: [],
-        done: []
+  const [columns, setColumns] = useState({
+    todo: [
+      { id: 1, task: "Design Homepage", status: "todo" },
+      { id: 2, task: "Write Hero Section", status: "todo" }
+    ],
+    inProgress: [
+      { id: 3, task: "Build Navbar", status: "inProgress" }
+    ],
+    done: [
+      { id: 4, task: "Setup Repo", status: "done" }
+    ]
+  });
 
-    })
+  const [inputVisible, setInputVisible] = useState(false);
+  const [taskInput, setTaskInput] = useState("");
 
-    const [showInp, setshowInp] = useState(true)
-    const inputFormRef = useRef()
-    const [inpVal, setinpVal] = useState("");
-
-    const handleTaskCreate = ()=>{
-        if(!inpVal || inpVal.length < 3){
-            alert("enter a valid task length should b 3");
-            return;
-        }
-        const newCard  = {
-            task:inpVal,
-            id:Date.now(),
-            status:"todo"
-        }
-        setColumns((prev)=>{
-            return {...prev,todo:[...prev.todo,newCard]}
-        })
+  const handleAddTask = () => {
+    if (!taskInput.trim() || taskInput.length < 3) {
+      alert("Task must be at least 3 characters long");
+      return;
     }
 
-    return (
-        <div className='max-w-screen py-8 px-8 bg-gray-50'>
-            <div  className=' border-b mb-4 flex py-5 px-5 justify-between'>
-                <h1 className='text-2xl  font-semibold'>Kanban Board</h1>
-                <button  className='border w-5 h-5 flex justify-center items-center flex-col rounded-full' onClick={()=>setshowInp((prev)=>!prev)}>+</button>
+    const newTask = {
+      id: Date.now(),
+      task: taskInput,
+      status: "todo"
+    };
+
+    setColumns((prev) => ({
+      ...prev,
+      todo: [...prev.todo, newTask]
+    }));
+
+    setTaskInput("");
+    setInputVisible(false);
+  };
+
+  const getWidthPercent = (key) => {
+    const total =
+      columns.todo.length + columns.inProgress.length + columns.done.length;
+    return total === 0 ? 0 : (columns[key].length / total) * 100;
+  };
+
+  const handleDragStart = (e, item) => {
+    e.dataTransfer.setData('cardId', item.id);
+    e.dataTransfer.setData('fromColumn', item.status);
+  };
+
+  const handleDrop = (e, targetColumn) => {
+    const cardId = e.dataTransfer.getData('cardId');
+    const fromColumn = e.dataTransfer.getData('fromColumn');
+
+    if (!cardId || !fromColumn || fromColumn === targetColumn) return;
+
+    const draggedCard = columns[fromColumn].find((item) => item.id == cardId);
+
+    setColumns((prev) => ({
+      ...prev,
+      [fromColumn]: prev[fromColumn].filter((item) => item.id != cardId),
+      [targetColumn]: [
+        ...prev[targetColumn],
+        { ...draggedCard, status: targetColumn },
+      ],
+    }));
+  };
+
+  const renderColumn = (key, label, color) => (
+    <div
+      key={key}
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={(e) => handleDrop(e, key)}
+      className="relative w-[32%] bg-gray-50 border rounded-lg p-4 shadow-md"
+    >
+      {/* 🌟 Vertical Progress Bar */}
+      <div className="absolute top-0 right-0 h-full w-2 bg-gray-200 rounded-r-lg overflow-hidden">
+        <div
+          className={`w-full transition-all duration-300 ${color === 'teal' ? 'bg-teal-500' : color === 'yellow' ? 'bg-yellow-400' : 'bg-green-500'}`}
+          style={{ height: `${getWidthPercent(key)}%` }}
+        ></div>
+      </div>
+
+      <h2 className={`text-xl font-bold mb-4 text-${color}-700`}>{label}</h2>
+
+      {/* 🟢 Only show add task in TODO */}
+      {key === "todo" && (
+        <div className="mb-4">
+          {inputVisible ? (
+            <div className="flex flex-col gap-2">
+              <input
+                type="text"
+                value={taskInput}
+                onChange={(e) => setTaskInput(e.target.value)}
+                placeholder="Enter task..."
+                className="px-3 py-2 border rounded w-full"
+              />
+              <div className="flex gap-2">
+                <button
+                  onClick={handleAddTask}
+                  className="bg-teal-600 text-white px-3 py-1 rounded"
+                >
+                  Add Task
+                </button>
+                <button
+                  onClick={() => setInputVisible(false)}
+                  className="border px-3 py-1 rounded"
+                >
+                  Cancel
+                </button>
+              </div>
             </div>
-            <div ref={inputFormRef}  style={{maxHeight:showInp ? `${inputFormRef.current?.scrollHeight}px`:0}} className='mb-4 flex flex-col  rounded-lg transition-all duration-200 shadow-md shadow-gray-400  overflow-hidden gap-4 '>
-                <label htmlFor="task" className='py-3 ml-4'>Task</label>
-                <input value={inpVal} onChange={(e)=>setinpVal(e.target.value)} type="text" placeholder='enter your task ' className=" mx-4 py-3 px-4 bg-gray-200 rounded-lg" id='task'/>
-
-                <button onClick={handleTaskCreate} className='w-fit px-5 py-2 border mb-5 ml-4 bg-gray-500 font-semibold  text-white'>Add-Todo</button>
-            </div>
-            <div className='flex max-w-screen gap-2 bg-white  px-2 rounded-lg pb-2'>
-                {Object.entries(Columns).map(([key, value]) => (
-                    <div key={key} className='  relative before:absolute before:h-[50%]  before:w-2 before:bg-teal-500 before:-left-2 before:top-0  shadow-md shadow-gray-400  h-[100vh] w-[34%]  text-center before:rounded-b-lg '>
-
-                        <h2 style={{backgroundColor : key == "todo" ? "#e9f0f0" : key == "inProgress" ? "yellow" :"green"}} className='shadow-sm text-2xl text-teal-500 font-semibold uppercase shadow-gray-500 py-3'>{key}</h2>
-                        <div className='  h-full   '>
-                            {value.map((item, i) => (
-                             item.task
-                            ))}
-                        </div>
-
-                    </div>
-                ))}
-            </div>
-
+          ) : (
+            <button
+              onClick={() => setInputVisible(true)}
+              className="bg-teal-100 text-teal-800 px-3 py-2 rounded font-medium"
+            >
+              + Add Task
+            </button>
+          )}
         </div>
-    )
-}
+      )}
 
-export default KanbanBoard
+      <div className="flex flex-col gap-3">
+        {columns[key].map((item) => (
+          <KanbanCard key={item.id} item={item} onDragStart={handleDragStart} />
+        ))}
+      </div>
+    </div>
+  );
+
+  return (
+    <div className="min-h-screen bg-gray-100 p-8">
+      <h1 className="text-3xl font-bold mb-6 text-center text-teal-600">
+        Kanban Board 🚀
+      </h1>
+      <div className="flex justify-between gap-4">
+        {renderColumn("todo", "To Do", "teal")}
+        {renderColumn("inProgress", "In Progress", "yellow")}
+        {renderColumn("done", "Done", "green")}
+      </div>
+    </div>
+  );
+};
+
+export default KanbanBoard;
