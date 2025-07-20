@@ -124,6 +124,8 @@ function App() {
       {/* <EditTable/> */}
       {/* <ScrollProgressBar/> */}
       <KanbanBoard/>
+      {/* <AutoFocusOtp/> */}
+      {/* <QuizApp/> */}
  
     </div>
   );

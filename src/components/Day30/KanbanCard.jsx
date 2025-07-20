@@ -1,15 +1,18 @@
 import React from 'react'
 
-const KanbanCard = ({ item, onDragStart }) => {
+const KanbanCard = ({item,handleDragStart}) => {
   return (
     <div
-      draggable
-      onDragStart={(e) => onDragStart(e, item)}
-      className="bg-white border border-gray-200 rounded-lg shadow-sm px-4 py-3 hover:shadow-md transition-all duration-200 cursor-pointer text-left"
-    >
-      <h3 className="text-gray-800 font-medium text-base">{item.task}</h3>
-    </div>
-  );
-};
+    draggable
+    onDragStart={(e)=>handleDragStart(e,item)}
 
-export default KanbanCard;
+     className='py-3 px-4 hover:shadow-2xl bg-white  shadow-md shadow-gray-400 rounded-lg '>
+      <div>
+        <h2 className='font-semibold'>{item.task}</h2>
+      </div>
+      
+    </div>
+  )
+}
+
+export default KanbanCard
