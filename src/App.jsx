@@ -25,7 +25,7 @@ import Accordion from "./components/Day3/Accordion.jsx"
 import AutoAccordion from './components/Day19/AutoAccordion.jsx';
 import SidebarLayout from './components/Day20/SidebarLayout.jsx';
 // import Gallery from "./components/Day4/Gallery.jsx"
-import StatsSection from './components/Day21/index.jsx';
+import StatsSection from './components/Day21/Index.jsx';
 import Modal from './components/day5/Modal.jsx';
 import Gallery from './components/Day22/Gallery.jsx';
 import AudioPlayer from './components/Day22/AudioPlayer.jsx';
@@ -42,6 +42,9 @@ import GoalTracker from './components/Day28/GoalTracker.jsx';
 import EditTable from './components/Day29/EditTable.jsx';
 import KanbanBoard from './components/Day30/KanbanBoard.jsx';
 import CommandPallete from './components/Day31/CommandPallete.jsx';
+import AnimatedCounter from './components/Day21/AnimatedCounter.jsx';
+import Index from './components/Day21/Index.jsx';
+import CommandAdvance from './components/Day31/CommandAdvance.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -120,14 +123,7 @@ function App() {
           <Toast key={item.id} item={item} index={i} close={handleCloseToast} />
         ))}
       </div> */}
-      {/* <StickyNotes/> */}
-      {/* <GoalTracker/> */}
-      {/* <EditTable/> */}
-      {/* <ScrollProgressBar/> */}
-      {/* <KanbanBoard/> */}
-      {/* <AutoFocusOtp/> */}
-      {/* <QuizApp/> */}
-      <CommandPallete/>
+    <CommandAdvance/>
  
     </div>
   );

@@ -1,7 +1,7 @@
 import React from 'react'
 import AnimatedCounter from './AnimatedCounter'
 
-const index = () => {
+const Index = () => {
 
   const animate = [
     {target:1000,label:"user"},
@@ -25,4 +25,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index
