@@ -93,6 +93,7 @@ function App() {
 
   return (
     <div className='bg-black/80 text-white h-screen w-screen'>
+      {/* <h2>Canvas Draw</h2> */}
       {/* <h2 className='text-3xl font-bold text-center mb-4'>Day-27/ Sticky notes </h2> */}
         {/* <TestimonialSlider/> */}
       {/* Modal Part
@@ -124,6 +125,7 @@ function App() {
         ))}
       </div> */}
     <CommandAdvance/>
+    {/* <CanvasDraw/> */}
  
     </div>
   );
