@@ -25,11 +25,25 @@ const ImageStack = () => {
   const [dragIndex, setdragIndex] = useState(null);
   const [postion, setpostion] = useState((imageArray.map((_, i) => ({ x: i * 10, y: i * 10 }))))
   const containerRef = useRef(null);
+  const imageRef = useRef([]);
 
 
   const handleMouseUp = () => {
     setisDragging(false);
+    const currentItem = imageRef.current[dragIndex];
+    //  console.log(currentItem.style.zIndex)
+    for (let i = 0; i < imageRef.current.length; i++) {
+      if (imageRef.current[i] === currentItem) {
+        continue;
+      } else {
+        imageRef.current[i].style.zIndex = i;
+      }
+
+    }
+
+
     setdragIndex(null);
+
 
 
   }
@@ -46,9 +60,16 @@ const ImageStack = () => {
 
   }
 
+
+
   const handmouseDown = (e, i) => {
     setisDragging(true);
     setdragIndex(i);
+    const currentItem = imageRef.current[i];
+    imageRef.current[i].style.zIndex = 50;
+
+
+
     const rect = containerRef.current.getBoundingClientRect();
 
 
@@ -68,7 +89,7 @@ const ImageStack = () => {
       onMouseUp={handleMouseUp}
 
 
-      className='h-[400px] relative  w-[800px] mx-auto px-5 shadow-md bg-white shadow-gray-700 flex justify-center items-center flex-col rounded-lg '>
+      className='h-[400px] relative  w-full mx-auto px-5 shadow-md bg-white shadow-gray-700 flex justify-center items-center flex-col rounded-lg '>
 
       <div
 
@@ -76,6 +97,7 @@ const ImageStack = () => {
         {
           imageArray.map((item, i) => (
             <div key={i}
+              ref={(el) => imageRef.current[i] = el}
               onMouseDown={(e) => handmouseDown(e, i)}
               style={{
                 left: `${postion[i].x}px`,

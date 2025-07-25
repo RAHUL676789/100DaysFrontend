@@ -45,6 +45,7 @@ import CommandPallete from './components/Day31/CommandPallete.jsx';
 import AnimatedCounter from './components/Day21/AnimatedCounter.jsx';
 import Index from './components/Day21/Index.jsx';
 import CommandAdvance from './components/Day31/CommandAdvance.jsx';
+import MultipleImageUploaderandPreviwer from './components/Day32/MultipleImageUploaderandPreviwer.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -92,8 +93,8 @@ function App() {
   };
 
   return (
-    <div className='bg-black/80 text-white h-screen w-screen'>
-      {/* <h2>Canvas Draw</h2> */}
+    <div className='bg-white text-white h-screen w-screen'>
+     
       {/* <h2 className='text-3xl font-bold text-center mb-4'>Day-27/ Sticky notes </h2> */}
         {/* <TestimonialSlider/> */}
       {/* Modal Part
@@ -124,8 +125,10 @@ function App() {
           <Toast key={item.id} item={item} index={i} close={handleCloseToast} />
         ))}
       </div> */}
-    <CommandAdvance/>
+    {/* <CommandAdvance/> */}
     {/* <CanvasDraw/> */}
+    {/* <ImageStack/> */}
+    <MultipleImageUploaderandPreviwer/>
  
     </div>
   );
