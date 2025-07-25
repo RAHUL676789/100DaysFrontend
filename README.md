@@ -46,7 +46,9 @@ Welcome to my **100 Days Frontend Challenge** — a self-commitment to build 100
 | 27 | imageStack,before after |        | [Day 27](./src/components/Day27/StickyNotes.jsx)
 | 28 | Goal Item |        | [Day 28](./src/components/Day28/GoalTracker.jsx)
 | 29 | editTable |        | [Day 29](./src/components/Day29/editTable.jsx)
-| 30 | KanbanBoard |        | [Day 22](./src/components/Day27/StickyNotes.jsx)
+| 30 | KanbanBoard |        | [Day 30](./src/components/Day27/KanbanBoard.jsx)
+| 31 |  | CommandPallete       | [Day 31](./src/components/Day27/CommandPalleteAdvance.jsx)
+| 32 |  | CommandPallete       | [Day 32](./src/components/Day27/MultipleImgeUplodandPreviewer.jsx)
 ---
 ---
 ---
