@@ -46,6 +46,7 @@ import AnimatedCounter from './components/Day21/AnimatedCounter.jsx';
 import Index from './components/Day21/Index.jsx';
 import CommandAdvance from './components/Day31/CommandAdvance.jsx';
 import MultipleImageUploaderandPreviwer from './components/Day32/MultipleImageUploaderandPreviwer.jsx';
+import ScrollImageSequence from './components/Day33/ScrollAnimationPlayer.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -128,7 +129,9 @@ function App() {
     {/* <CommandAdvance/> */}
     {/* <CanvasDraw/> */}
     {/* <ImageStack/> */}
-    <MultipleImageUploaderandPreviwer/>
+    {/* <MultipleImageUploaderandPreviwer/> */}
+    {/* <BeforeAfterImage/> */}
+    <ScrollImageSequence/>
  
     </div>
   );
