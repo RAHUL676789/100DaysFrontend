@@ -47,6 +47,7 @@ import Index from './components/Day21/Index.jsx';
 import CommandAdvance from './components/Day31/CommandAdvance.jsx';
 import MultipleImageUploaderandPreviwer from './components/Day32/MultipleImageUploaderandPreviwer.jsx';
 import ScrollImageSequence from './components/Day33/ScrollAnimationPlayer.jsx';
+import AdvanceTable from './components/Day34/AdvanceTable.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -94,7 +95,7 @@ function App() {
   };
 
   return (
-    <div className='bg-white text-white h-screen w-screen'>
+    <div className='bg-white h-screen w-screen'>
      
       {/* <h2 className='text-3xl font-bold text-center mb-4'>Day-27/ Sticky notes </h2> */}
         {/* <TestimonialSlider/> */}
@@ -131,7 +132,9 @@ function App() {
     {/* <ImageStack/> */}
     {/* <MultipleImageUploaderandPreviwer/> */}
     {/* <BeforeAfterImage/> */}
-    <ScrollImageSequence/>
+    {/* <ScrollImageSequence/> */}
+    {/* <PasswordGenerator/> */}
+    <AdvanceTable/>
  
     </div>
   );

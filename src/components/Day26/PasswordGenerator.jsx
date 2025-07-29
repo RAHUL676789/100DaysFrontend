@@ -69,10 +69,10 @@ const PasswordGenerator = () => {
     alert(`!copid`)
   }
   return (
-    <div className='max-w-lg  shadow-md shadow-gray-600 rounded-lg mx-auto p-5'>
+    <div className='max-w-lg text-black  shadow-md shadow-gray-600 rounded-lg mx-auto p-5'>
       <h2 className='text-center font-semibold  text-2xl text-teal-600'>PasswordGenerator</h2>
       <div className='w-full  flex justify-around my-4 gap-3'>
-         <input readOnly value={password} type={`${showPassword ? "text" :"password"}`}  className='flex-1 bg-gray-50 p-2.5 rounded-sm focus:outline-0 focus:ring-2 focus:ring-teal-500'/>
+         <input readOnly value={password} type={`${showPassword ? "text" :"password"}`}  className='flex-1 border bg-gray-50 p-2.5 rounded-sm focus:outline-0 focus:ring-2 focus:ring-teal-500'/>
          <button onClick={handleCopy} className='px-7 py-2 bg-teal-700 rounded-lg font-semibold border-2 border-teal-700  text-white'>copy</button>
          <button onClick={()=>setshowPassword((prev)=>!prev)} className='border bg-yellow-600 text-white rounded-lg font-semibold px-3 py-1'>showPassword</button>
       </div>
