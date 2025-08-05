@@ -48,6 +48,7 @@ import CommandAdvance from './components/Day31/CommandAdvance.jsx';
 import MultipleImageUploaderandPreviwer from './components/Day32/MultipleImageUploaderandPreviwer.jsx';
 import ScrollImageSequence from './components/Day33/ScrollAnimationPlayer.jsx';
 import AdvanceTable from './components/Day34/AdvanceTable.jsx';
+import NotificationCenter from './components/Day35/NotificationCenter.jsx';
 function App() {
   const [isModalOpen, setisModalOpen] = useState(false);
   const [toastStack, setToastStack] = useState([]);
@@ -134,7 +135,9 @@ function App() {
     {/* <BeforeAfterImage/> */}
     {/* <ScrollImageSequence/> */}
     {/* <PasswordGenerator/> */}
-    <AdvanceTable/>
+    {/* <AdvanceTable/> */}
+    {/* <KanbanBoard/> */}
+    <NotificationCenter/>
  
     </div>
   );
