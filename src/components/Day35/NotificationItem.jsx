@@ -1,11 +1,13 @@
 import React,{useRef} from 'react'
+import { useNotifications } from './notificationContext';
 
 const NotificationItem = ({ notification,handleIsOpen,isOpen }) => {
+    const {markAsRead,deleteNotifi} = useNotifications();
     function getRelativeTime(timestamp) {
         const now = new Date();
         const past = new Date(timestamp);
         const diff = (now - past) / 1000; // in seconds
-        console.log(diff)
+        // console.log(diff)
 
         if (diff < 60) return `${Math.floor(diff)} sec ago`;
         if (diff < 3600) return `${Math.floor(diff / 60)} min ago`;
@@ -25,9 +27,10 @@ const NotificationItem = ({ notification,handleIsOpen,isOpen }) => {
             </div>
             <div ref={msgRef} style={{maxHeight : isOpen ? `${msgRef?.current?.scrollHeight}px` :"0px"}} className='text-start transition-all duration-200 overflow-hidden '>
                 <p className=' text-sm' > {notification.message}</p>
-                <div className='flex gap-2'>
-                    <button className='text-xs px-2 py-1 hover:bg-gray-300 rounded cursor-pointer font-semibold text-green-500 '>mark as read</button>
-                </div>
+               { !notification?.read &&  <div className='flex gap-2'>
+                    <button onClick={()=>markAsRead(notification?.id)} className='text-xs px-2 py-1 hover:bg-gray-300 rounded cursor-pointer font-semibold text-green-500 '>mark as read</button>
+                </div>}
+                <button onClick={()=>deleteNotifi(notification?.id)} className='text-red-500 text-sm cursor-pointer'>delete</button>
             </div>  
 
         </div>

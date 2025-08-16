@@ -1,17 +1,21 @@
 import React,{useRef,useState} from 'react'
 import NotificationItem from './NotificationItem'
+import { useNotifications } from './notificationContext';
 
-const NotificationList = ({notifications,showNotification}) => {
+const NotificationList = ({showNotification}) => {
+    // console.log(notifications)
     const notifieRef = useRef();
     const [isOpen, setisOpen] = useState(null)
     const handleIsOpen = (id)=>{
         setisOpen((prev)=> prev === id ? null : id);
     }
+    const {notifications} = useNotifications();
+    console.log(notifications)
   return (
     <div ref={notifieRef} style={{maxHeight:showNotification ? `${notifieRef?.current?.scrollHeight}px` : `0px`}} className='text-center py-2 overflow-hidden transition-all duration-500'>
         {
-            notifications.length > 0 ? 
-            notifications.map((notification,i)=>(
+            notifications?.length > 0 ? 
+            notifications?.map((notification,i)=>(
                 <NotificationItem key={i} notification={notification} isOpen={isOpen === i+1 ? true : false} handleIsOpen={handleIsOpen}/>
 
             )) 

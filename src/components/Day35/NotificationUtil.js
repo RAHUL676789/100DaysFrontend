@@ -81,7 +81,7 @@ const   sampleNotificatios = [
     title: "Slot Rescheduled",
     message: "Your AC repair slot has been moved to 6 PM.",
     time: "2025-08-02T16:10:00",
-    read: true,
+    read: false,
   },
   {
     id: 13,
@@ -95,7 +95,7 @@ const   sampleNotificatios = [
     title: "Subscription Expired",
     message: "Your EaseHome Prime subscription has ended.",
     time: "2025-08-01T18:00:00",
-    read: true,
+    read: false,
   },
   {
     id: 15,

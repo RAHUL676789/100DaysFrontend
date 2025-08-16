@@ -176,7 +176,7 @@ const CommandAdvance = () => {
 
             <div className='h-screen w-full flex justify-center items-center flex-col border'>
 
-                <h2 className='text-center text-2xl font-semibold text-white '>Press cnrtl / cmd + r to open the search Box</h2>
+                <h2 className='text-center text-2xl font-semibold text-black '>Press cnrtl / cmd + r to open the search Box</h2>
             </div>
 
         </div>
