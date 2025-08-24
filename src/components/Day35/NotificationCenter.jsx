@@ -4,7 +4,9 @@ import NotificationList from './NotificationList'
 import sampleNotification from './NotificationUtil.js'
 import { useNotifications } from './notificationContext.jsx'
 const NotificationCenter = () => {
+  // console.log(useNotifications)
  const {notifications} = useNotifications();
+//  console.log("notification",notifications)
 //  console.log(notifications)
   const [showNotification, setshowNotification] = useState(false)
   const [unread, setunread] = useState(null)
