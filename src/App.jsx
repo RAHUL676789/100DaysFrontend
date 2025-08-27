@@ -1,5 +1,6 @@
 import LayeredWhiteboard from './components/LayeredWhiteboard';
 import "./App.css"
+import PasswordSuggestion from "./components/Day38/PasswordSuggestion"
 
-function App(){ return <LayeredWhiteboard width={900} height={520} boardId={'main'} /> }
+function App(){ return <PasswordSuggestion/>}
 export default App;

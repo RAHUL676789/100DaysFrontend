@@ -48,6 +48,7 @@ const PasswordGenerator = () => {
     if (/[a-z]/.test(pass)) score++;
     if (/\d/.test(pass)) score++;
     if (/[^A-Za-z0-9]/.test(pass)) score++;
+    
 
     if(score <= 2) setstrength("weak")
       else if(score == 3 || score == 4) setstrength("moderate")
