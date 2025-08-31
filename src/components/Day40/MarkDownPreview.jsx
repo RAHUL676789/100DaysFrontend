@@ -134,6 +134,7 @@ export default function MarkdownNotesApp() {
     return () => window.removeEventListener("keydown", onKey);
   }, []);
 
+
   function createNote() {
     const now = Date.now();
     const n = {
@@ -278,9 +279,15 @@ export default function MarkdownNotesApp() {
                     }`}
                   >
                     <div className="flex items-center gap-2">
-                      <div className="truncate font-medium">{n.title || "Untitled"}</div>
+                      <div className="truncate font-medium">
+                        {n.title || "Untitled"}
+
+                      </div>
                     </div>
-                    <div className="text-xs opacity-70 mt-0.5">{fmtDate(n.updatedAt)}</div>
+                    <div className="text-xs opacity-70 mt-0.5">
+                      {fmtDate(n.updatedAt)}
+
+                    </div>
                     <div className="text-xs line-clamp-2 opacity-70 mt-1">{n.content.replace(/\s+/g, " ").slice(0, 160)}</div>
                   </motion.button>
                 ))}
@@ -346,6 +353,7 @@ export default function MarkdownNotesApp() {
                     onChange={(e) => updateActive({ content: e.target.value })}
                     placeholder="# Title\n\nStart writing markdown..."
                   />
+                  
                   <div className="p-3 border-t border-zinc-200/60 dark:border-zinc-800/60 flex gap-2">
                     <button
                       onClick={() => {
