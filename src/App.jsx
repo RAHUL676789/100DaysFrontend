@@ -1,8 +1,22 @@
-import LayeredWhiteboard from './components/LayeredWhiteboard';
-import "./App.css"
-import PasswordSuggestion from "./components/Day38/PasswordSuggestion"
-import MarkdownNotesApp from './components/Day40/MarkDownPreview';
-import MarkDownStepByStep from './components/Day40/MarkDownStepByStep';
+import React,{useMemo, useState} from 'react'
+import { counterContext } from './components/Context/context'
+import Comp1 from "./components/Context/Comp1.jsx"
 
-function App(){ return <MarkDownStepByStep/>}
-export default App;
+const App = () => {
+
+
+  const [count, setcount] = useState(0)
+ 
+  return (
+    <div>
+      <counterContext.Provider value={{count,setcount}}>
+        <Comp1/>
+
+
+      </counterContext.Provider>
+  
+    </div>
+  )
+}
+
+export default App
