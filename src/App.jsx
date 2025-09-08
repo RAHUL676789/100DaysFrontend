@@ -3,6 +3,7 @@ import { counterContext } from './components/Context/context'
 import Comp1 from "./components/Context/Comp1.jsx"
 import "./App.css"
 import InfiniteScroll from './components/Day41/InfiniteScroll.jsx'
+import ScrollTopUp from './components/Day42/ScrollTopUp.jsx'
 
 const App = () => {
 
@@ -11,7 +12,7 @@ const App = () => {
  
   return (
     <div>
-     <InfiniteScroll/>
+   <ScrollTopUp/>
   
     </div>
   )
