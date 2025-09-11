@@ -7,6 +7,8 @@ import ScrollTopUp from './components/Day42/ScrollTopUp.jsx'
 import ResizeablePane from './components/Day43/ResizeablePane.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import Home2 from './components/Home2.jsx'
+import Calendar from './components/Day44/Calendar.jsx'
+
 
 
 const App = () => {
@@ -17,7 +19,7 @@ const App = () => {
   return (
     <div>
       <ErrorBoundary>
-        <Home2/>
+      <Calendar/>
       </ErrorBoundary>
     </div>
   )
