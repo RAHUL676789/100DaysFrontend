@@ -5,6 +5,9 @@ import "./App.css"
 import InfiniteScroll from './components/Day41/InfiniteScroll.jsx'
 import ScrollTopUp from './components/Day42/ScrollTopUp.jsx'
 import ResizeablePane from './components/Day43/ResizeablePane.jsx'
+import ErrorBoundary from './components/ErrorBoundary.jsx'
+import Home2 from './components/Home2.jsx'
+
 
 const App = () => {
 
@@ -13,9 +16,9 @@ const App = () => {
  
   return (
     <div>
-       <h1 className="text-3xl font-semibold text-center mb-3 ">Resizeable Pane Split</h1>
-   <ResizeablePane/>
-  
+      <ErrorBoundary>
+        <Home2/>
+      </ErrorBoundary>
     </div>
   )
 }
