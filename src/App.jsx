@@ -8,6 +8,7 @@ import ResizeablePane from './components/Day43/ResizeablePane.jsx'
 import ErrorBoundary from './components/ErrorBoundary.jsx'
 import Home2 from './components/Home2.jsx'
 import Calendar from './components/Day44/Calendar.jsx'
+import CropImage from './components/Day45/CropImage.jsx'
 
 
 
@@ -19,7 +20,7 @@ const App = () => {
   return (
     <div>
       <ErrorBoundary>
-      <Calendar/>
+      <CropImage/>
       </ErrorBoundary>
     </div>
   )
