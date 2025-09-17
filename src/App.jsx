@@ -18,7 +18,8 @@ const App = () => {
   const [count, setcount] = useState(0)
  
   return (
-    <div>
+    <div className='py-1 bg-black'>
+      <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1>
       <ErrorBoundary>
       <CropImage/>
       </ErrorBoundary>

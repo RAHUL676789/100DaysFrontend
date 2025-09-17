@@ -1,94 +1,223 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from "react";
 
 const CropImage = () => {
-    const [imageUrl, setimageUrl] = useState(null)
-    const [crop, setcrop] = useState({ x: 50, y: 50, height: 200, width: 200 })
-    const isDragging = useRef(false)
-    const startDrag = useRef({ x: 0, y: 0 });
-    const imageRef = useRef(null);
-    const canvaRef = useRef(null);
+  const [imageUrl, setImageUrl] = useState(null);
+  const [crop, setCrop] = useState({ x: 50, y: 50, width: 200, height: 200 });
+  const imageRef = useRef(null);
+  const canvasRef = useRef(null);
 
-    const handleImageChange = (e) => {
-        const file = e.target.files[0];
-        if (file) setimageUrl(URL.createObjectURL(file));
+  const isDragging = useRef(false);
+  const isResizing = useRef(false);
+  const resizeDirection = useRef(null);
+  const startPos = useRef({ x: 0, y: 0, width: 0, height: 0, cropX: 0, cropY: 0 });
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    if (file) setImageUrl(URL.createObjectURL(file));
+  };
+
+  // ---- Move ----
+  const handleMouseDown = (e) => {
+    if (e.target.dataset.handle) return; // skip if clicked on resize handle
+    isDragging.current = true;
+    startPos.current = {
+      x: e.clientX - crop.x,
+      y: e.clientY - crop.y,
+    };
+  };
+
+  // ---- Resize ----
+  const handleResizeStart = (e, dir) => {
+    e.stopPropagation();
+    isResizing.current = true;
+    resizeDirection.current = dir;
+    startPos.current = {
+      x: e.clientX,
+      y: e.clientY,
+      width: crop.width,
+      height: crop.height,
+      cropX: crop.x,
+      cropY: crop.y,
+    };
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDragging.current) {
+      setCrop((prev) => ({
+        ...prev,
+        x: e.clientX - startPos.current.x,
+        y: e.clientY - startPos.current.y,
+      }));
     }
-    const hadleMouseDown = (e) => {
-        isDragging.current = true;
-        startDrag.current = {
-            x: e.clientX - crop.x,
-            y: e.clientY - crop.y
-        }
+
+    if (isResizing.current) {
+      const dx = e.clientX - startPos.current.x;
+      const dy = e.clientY - startPos.current.y;
+      let newCrop = { ...crop };
+
+      switch (resizeDirection.current) {
+        case "right":
+          newCrop.width = startPos.current.width + dx;
+          break;
+        case "bottom":
+          newCrop.height = startPos.current.height + dy;
+          break;
+        case "bottom-right":
+          newCrop.width = startPos.current.width + dx;
+          newCrop.height = startPos.current.height + dy;
+          break;
+        case "left":
+          newCrop.x = startPos.current.cropX + dx;
+          newCrop.width = startPos.current.width - dx;
+          break;
+        case "top":
+          newCrop.y = startPos.current.cropY + dy;
+          newCrop.height = startPos.current.height - dy;
+          break;
+        case "top-left":
+          newCrop.x = startPos.current.cropX + dx;
+          newCrop.width = startPos.current.width - dx;
+          newCrop.y = startPos.current.cropY + dy;
+          newCrop.height = startPos.current.height - dy;
+          break;
+        case "top-right":
+          newCrop.y = startPos.current.cropY + dy;
+          newCrop.height = startPos.current.height - dy;
+          newCrop.width = startPos.current.width + dx;
+          break;
+        case "bottom-left":
+          newCrop.x = startPos.current.cropX + dx;
+          newCrop.width = startPos.current.width - dx;
+          newCrop.height = startPos.current.height + dy;
+          break;
+        default:
+          break;
+      }
+
+      if (newCrop.width > 20 && newCrop.height > 20) {
+        setCrop(newCrop);
+      }
     }
+  };
 
-    const handleMouseup = (e) => {
-        isDragging.current = false
-    }
-    const handleMouseMove = (e) => {
-        if (!isDragging.current) return;
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    isResizing.current = false;
+    resizeDirection.current = null;
+  };
 
-        setcrop((prev) => {
-            return {
-                ...prev,
-                x: e.clientX - startDrag.current.x,
-                y: e.clientY - startDrag.current.y
-            }
-        })
+  // ---- Canvas Preview ----
+  useEffect(() => {
+    if (!canvasRef.current || !imageRef.current) return;
+    const canvas = canvasRef.current;
+    const ctx = canvas.getContext("2d");
+    const { x, y, width, height } = crop;
+    const img = imageRef.current;
 
-    }
+    const scaleX = img.naturalWidth / img.clientWidth;
+    const scaleY = img.naturalHeight / img.clientHeight;
 
-    useEffect(() => {
-        const canvas = canvaRef.current;
-        if (!canvaRef.current) return;
-        const ctx = canvas.getContext("2d");
-        const { x, y, height, width } = crop;
-        const img = imageRef.current;
-        canvas.width = width;
-        canvas.height = height;
-        const scaleX = img.naturalWidth / img.clientWidth;
-        const scaleY = img.naturalHeight / img.clientHeight;
-        ctx.clearRect(0, 0, width, height);
-        ctx.drawImage(img, x * scaleX, y * scaleY, width, height, 0, 0, width, height);
-    }, [crop, imageUrl])
-    
-    return (
-        <div className='min-h-screen w-screen flex  justify-center items-center gap-2 bg-gray-900 '>
+    canvas.width = width;
+    canvas.height = height;
 
-            <div className='h-[70vh] w-[50vw] flex gap-4'>
+    ctx.clearRect(0, 0, width, height);
+    ctx.drawImage(
+      img,
+      x * scaleX,
+      y * scaleY,
+      width * scaleX,
+      height * scaleY,
+      0,
+      0,
+      width,
+      height
+    );
+  }, [crop, imageUrl]);
 
-                <div onMouseUp={handleMouseup} onMouseMove={handleMouseMove} className='h-full w-full flex justify-center items-center rounded-2xl border border-white '>
-                    {
-                        !imageUrl ? <div>
-                            <label htmlFor='file' className='px-4 text-white py-2 rounded  w-fit '>
+  return (
+    <div
+      className="min-h-screen w-screen flex justify-center items-center gap-6 bg-gray-900 text-white"
+      onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
+    >
+      
+      {/* Image + Cropper */}
+      <div className="relative h-[70vh] w-[50vw] flex justify-center items-center border select-none border-gray-400 rounded-lg overflow-hidden">
+        {!imageUrl ? (
+          <label className="px-4 py-2 bg-purple-600 rounded cursor-pointer">
+            Upload Image
+            <input
+              type="file"
+              accept="image/*"
+              className="hidden"
+              onChange={handleImageChange}
+            />
+          </label>
+        ) : (
+          <div className="relative w-full h-full">
+            <img
+              ref={imageRef}
+              src={imageUrl}
+              alt="Crop target"
+              className="h-full w-full object-contain"
+            />
 
-                                <input onChange={handleImageChange} type="file" id='file' />
-                            </label>
-                        </div> : <div className='relative h-full w-full'>
-                            <img ref={imageRef} src={imageUrl} alt='Image' className='h-full w-full object-cover rounded' />
-                            <div
-                                onMouseDown={hadleMouseDown}
-                                style={{ left: crop.x, top: crop.y, height: crop.height, width: crop.width }}
-                                className='absolute border-2 border-amber-500'>
-                            </div>
-                        </div>
-                    }
-
-
-
-                </div>
-
-
+            {/* Crop Box */}
+            <div
+              onMouseDown={handleMouseDown}
+              style={{
+                top: crop.y,
+                left: crop.x,
+                width: crop.width,
+                height: crop.height,
+              }}
+              className="absolute border-2 border-yellow-400 bg-yellow-400/10"
+            >
+              {/* Handles */}
+              {[
+                "top-left",
+                "top",
+                "top-right",
+                "right",
+                "bottom-right",
+                "bottom",
+                "bottom-left",
+                "left",
+              ].map((dir) => (
+                <div
+                  key={dir}
+                  data-handle
+                  onMouseDown={(e) => handleResizeStart(e, dir)}
+                  className="absolute w-3 h-3 bg-white border border-black rounded-full"
+                  style={{
+                    cursor: `${dir}-resize`,
+                    ...(dir.includes("top") && { top: "-6px" }),
+                    ...(dir.includes("bottom") && { bottom: "-6px" }),
+                    ...(dir.includes("left") && { left: "-6px" }),
+                    ...(dir.includes("right") && { right: "-6px" }),
+                    ...(dir === "top" || dir === "bottom"
+                      ? { left: "50%", transform: "translateX(-50%)" }
+                      : {}),
+                    ...(dir === "left" || dir === "right"
+                      ? { top: "50%", transform: "translateY(-50%)" }
+                      : {}),
+                  }}
+                />
+              ))}
             </div>
+          </div>
+        )}
+      </div>
 
-            {
-                imageUrl && <div className='flex bg-white flex-col'>
-                    <p>Preview</p>
-                    <canvas height={200} width={200} ref={canvaRef} className='border '></canvas>
-                </div>
-            }
-
-
+      {/* Preview */}
+      {imageUrl && (
+        <div className="flex flex-col items-center bg-white text-black p-4 rounded shadow-lg">
+          <p className="font-semibold mb-2">Preview</p>
+          <canvas ref={canvasRef} className="border rounded" />
         </div>
-    )
-}
+      )}
+    </div>
+  );
+};
 
-export default CropImage
+export default CropImage;
