@@ -190,7 +190,7 @@ const CropImage = () => {
                   onMouseDown={(e) => handleResizeStart(e, dir)}
                   className="absolute w-3 h-3 bg-white border border-black rounded-full"
                   style={{
-                    cursor: `${dir}-resize`,
+                    cursor: `c-resize`,
                     ...(dir.includes("top") && { top: "-6px" }),
                     ...(dir.includes("bottom") && { bottom: "-6px" }),
                     ...(dir.includes("left") && { left: "-6px" }),

@@ -9,6 +9,7 @@ import ErrorBoundary from './components/ErrorBoundary.jsx'
 import Home2 from './components/Home2.jsx'
 import Calendar from './components/Day44/Calendar.jsx'
 import CropImage from './components/Day45/CropImage.jsx'
+import CropPrac from './components/Day45/CropPrac.jsx'
 
 
 
@@ -21,7 +22,7 @@ const App = () => {
     <div className='py-1 bg-black'>
       <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1>
       <ErrorBoundary>
-      <CropImage/>
+      <CropPrac/>
       </ErrorBoundary>
     </div>
   )
