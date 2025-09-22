@@ -66,7 +66,7 @@ const CropPrac = () => {
                 break;
             }
 
-            case "top-right":{
+            case "top-right":{ 
                 newCrop.y = startPos.current.cropY + dy
                 newCrop.height = startPos.current.height - dy
                 newCrop.width= startPos.current.width + dx
