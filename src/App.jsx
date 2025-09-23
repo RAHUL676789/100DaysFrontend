@@ -12,6 +12,7 @@ import CropImage from './components/Day45/CropImage.jsx'
 import CropPrac from './components/Day45/CropPrac.jsx'
 // import ImageCurousel from './components/Day46/Virtualized.jsx'
 import CustomScrollbar from './components/Day46/CustomScrollbar.jsx'
+import CubeLight from './components/Day47/CubeLight.jsx'
 
 
 
@@ -22,10 +23,10 @@ const App = () => {
   const [count, setcount] = useState(0)
  
   return (
-    <div className='py-1 bg-white'>
-      <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1>
+    <div className=''>
+      {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-      <CustomScrollbar/>
+      <CubeLight/>
       </ErrorBoundary>
     </div>
   )
