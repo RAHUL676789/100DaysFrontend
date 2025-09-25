@@ -14,6 +14,7 @@ import CropPrac from './components/Day45/CropPrac.jsx'
 import CustomScrollbar from './components/Day46/CustomScrollbar.jsx'
 import CubeLight from './components/Day47/CubeLight.jsx'
 import CustomCountDown from './components/Day48/CustomCountDown.jsx'
+import ChatUi from './components/Day49/ChatUi.jsx'
 
 
 
@@ -27,7 +28,7 @@ const App = () => {
     <div className=''>
       {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-      <CustomCountDown/>
+      <ChatUi/>
       </ErrorBoundary>
     </div>
   )

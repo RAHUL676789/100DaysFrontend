@@ -194,3 +194,21 @@
 .smoke{
 background: linear-gradient(to top, #ffefba, #ffffff);
 }
+
+.left::-webkit-scrollbar{
+  width: 3px;
+}
+
+.left::-webkit-scrollbar-track{
+  width: 2px;
+  background: #fdfffd;
+}
+
+
+.left::-webkit-scrollbar-thumb{
+  width: 2px;
+  height: 10 !important;
+  background: #9fa39f;
+  border-radius: 8px;
+ 
+}
