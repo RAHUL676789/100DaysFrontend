@@ -15,6 +15,8 @@ import CustomScrollbar from './components/Day46/CustomScrollbar.jsx'
 import CubeLight from './components/Day47/CubeLight.jsx'
 import CustomCountDown from './components/Day48/CustomCountDown.jsx'
 import ChatUi from './components/Day49/ChatUi.jsx'
+import SolarSystem from './components/Day50/SolarySystem.jsx'
+
 
 
 
@@ -28,7 +30,7 @@ const App = () => {
     <div className=''>
       {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-      <ChatUi/>
+     <SolarSystem/>
       </ErrorBoundary>
     </div>
   )

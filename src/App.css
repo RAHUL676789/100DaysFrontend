@@ -212,3 +212,85 @@ background: linear-gradient(to top, #ffefba, #ffffff);
   border-radius: 8px;
  
 }
+
+/* .container{
+  background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ03mLyKmpvdkKf6XHoqmy7lfbXZnMK15COVw&s");
+} */
+
+.pluto{
+  rotate: 360deg;
+ 
+}
+
+.orbit,.sun,.orbit-2,.orbit-3,.moonplanet,.orbit-4{
+  transform: translate(-50%,-50%);
+  /* animation: spin 6s linear infinite; */
+
+}
+.orbit{
+  animation: self-rotate 7s linear  infinite ;
+}
+
+.sun{
+  animation: self-rotate 6s linear infinite;
+}
+
+.orbit-2{
+  animation: self-rotate 9s linear  infinite ;
+}
+
+.orbit-3{
+  animation: self-rotate 12s linear   infinite  ;
+}
+
+.moonOrbit{
+   animation: spin 2s linear   infinite  ;
+}
+
+.orbit-4{
+  animation: self-rotate 12s linear   infinite  ;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform:  rotate(360deg); }
+}
+
+
+
+.container{
+  animation: anim 12s ease-in-out  infinite ;
+}
+
+@keyframes rotation {
+  from { transform:translate(-50%,0%)  rotate(0deg); }
+  to   { transform:translate(100%,0)  rotate(360deg); }
+  
+}
+
+@keyframes  anim {
+   from { transform:translate(0%,0%)  rotate(0deg); }
+  to   { transform:translate(100%,0)  rotate(360deg); }
+}
+
+
+@keyframes self-rotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+body {
+  height: 100vh;
+  width: 200vw;
+  margin: 0;
+  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ03mLyKmpvdkKf6XHoqmy7lfbXZnMK15COVw&s") repeat-x;
+  background-size: cover;
+  animation: scrollBG 12s linear infinite;
+}
+
+@keyframes scrollBG {
+  from { background-position: 0 0; }
+  to   { background-position: 100% 0; }
+}
+
+
