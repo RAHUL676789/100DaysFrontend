@@ -263,14 +263,14 @@ background: linear-gradient(to top, #ffefba, #ffffff);
 }
 
 @keyframes rotation {
-  from { transform:translate(-50%,0%)  rotate(0deg); }
+  from { transform:translate(0%,0%)  rotate(0deg); }
   to   { transform:translate(100%,0)  rotate(360deg); }
   
 }
 
 @keyframes  anim {
-   from { transform:translate(0%,0%)  rotate(0deg); }
-  to   { transform:translate(100%,0)  rotate(360deg); }
+   from { transform:translate(0%,0%)  ; }
+  to   { transform:translate(80%,0)  ; }
 }
 
 

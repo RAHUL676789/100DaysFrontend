@@ -18,7 +18,7 @@ useEffect(() => {
 
   return (
     <div className='h-screen w-screen container'>
-      <div className="relative cot w-[520px] h-full  flex justify-center items-center border-white mx-auto ">
+      <div className="relative cot w-[520px] h-full flex justify-center items-center border-white  ">
 
         {/* Sun */}
         <div className="sun h-24 w-24 rounded-full bg-gradient-to-bl from-yellow-400 to-yellow-50 flex justify-center items-center shadow-xl shadow-yellow-200 absolute  translate-x-1/2 translate-y-1/2">
