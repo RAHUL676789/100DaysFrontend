@@ -269,7 +269,7 @@ background: linear-gradient(to top, #ffefba, #ffffff);
 }
 
 @keyframes  anim {
-   from { transform:translate(0%,0%)  ; }
+   from { transform:translate(50%,0%)  ; }
   to   { transform:translate(80%,0)  ; }
 }
 
@@ -279,14 +279,7 @@ background: linear-gradient(to top, #ffefba, #ffffff);
   to   { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-body {
-  height: 100vh;
-  width: 200vw;
-  margin: 0;
-  background: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ03mLyKmpvdkKf6XHoqmy7lfbXZnMK15COVw&s") repeat-x;
-  background-size: cover;
-  animation: scrollBG 12s linear infinite;
-}
+
 
 @keyframes scrollBG {
   from { background-position: 0 0; }
@@ -294,3 +287,34 @@ body {
 }
 
 
+
+.star1{
+  animation: star1 4s linear   ;
+}
+
+.star2{
+   animation: star2 4s linear   ;
+}
+
+
+@keyframes star1{
+  0%{border-left-width:0px;}
+  50%{border-top-width: 0px;border-left-width: 100px;}
+  75%{border-right-width: 0px;border-top-width: 100px;}
+  100%{border-bottom-width: 0px;border-right-width: 100px;}
+  100%{background-color: rgb(30, 30, 180);}
+}
+
+.lights{
+  box-shadow: -6px -12px 100px #edf90a;
+  background-color: rgb(236, 236, 7);
+}
+
+.motor{
+  animation: rotate-motor 0.2s linear   infinite  ;
+}
+
+@keyframes rotate-motor {
+   from{transform: rotate(0deg);}
+   to{transform: rotate(360deg);}
+}

@@ -16,6 +16,8 @@ import CubeLight from './components/Day47/CubeLight.jsx'
 import CustomCountDown from './components/Day48/CustomCountDown.jsx'
 import ChatUi from './components/Day49/ChatUi.jsx'
 import SolarSystem from './components/Day50/SolarySystem.jsx'
+import Stars from './components/Day51/Stars.jsx'
+import Bulb from './components/Day52/Bulb.jsx'
 
 
 
@@ -27,10 +29,10 @@ const App = () => {
   const [count, setcount] = useState(0)
  
   return (
-    <div className=''>
+    <div className='bg-black'>
       {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-     <SolarSystem/>
+     <Bulb/>
       </ErrorBoundary>
     </div>
   )
