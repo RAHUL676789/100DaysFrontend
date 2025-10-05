@@ -18,6 +18,7 @@ import ChatUi from './components/Day49/ChatUi.jsx'
 import SolarSystem from './components/Day50/SolarySystem.jsx'
 import Stars from './components/Day51/Stars.jsx'
 import Bulb from './components/Day52/Bulb.jsx'
+import VoiceControlled from './components/Day53/VoiceControlled.jsx'
 
 
 
@@ -32,7 +33,7 @@ const App = () => {
     <div className='bg-black'>
       {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-     <Bulb/>
+     <VoiceControlled/>
       </ErrorBoundary>
     </div>
   )
