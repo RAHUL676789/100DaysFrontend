@@ -1,163 +1,112 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 
 const MindMap = () => {
-    const [showNodeOptions, setshowNodeOptions] = useState({
-        circleOptions: false,
-        squareOptions: false
-    })
-
-    const circleRef = useRef(null);
-    const squareRef = useRef(null);
-
-    const lineRef = useRef(null);
-    const div1Ref = useRef(null)
-    const div2Ref = useRef(null);
+    const [nodes, setnodes] = useState([]);
+    const [lines, setlines] = useState([]);
+    const containerRef = useRef(null)
+    const drawingRef = useRef(null);
+    const [moveableDiv, setmoveableDiv] = useState(null)
+    const handleCreateNode = (e) => {
+        if (!containerRef.current) return;
 
 
-    const handleNodeOptions = (e, key) => {
+        const rect = containerRef.current.getBoundingClientRect();
+        console.log(rect)
+        console.log(e.clientX, e.clientY)
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const newNodePos = { x, y };
+        setnodes((prev) => [...prev, newNodePos])
+
+
+    }
+
+    const handdivMouseDown = (e) => {
+        const rect = e.target.getBoundingClientRect();
+        const x1 = rect.left + rect.width / 2;
+        const y1 = rect.top + rect.height / 2;
+        const newLines = { x1, y1, x2: x1, y2: y1 };
+        setlines((prev) => [...prev, newLines]);
+        console.log(lines)
+        drawingRef.current = lines.length;
+
+    }
+
+    const handleMouseMove = (e) => {
+
+     if (drawingRef.current === null || drawingRef.current === undefined) return;
+
+
+        if(moveableDiv < 0 || moveableDiv === null){
+               const updateLines = [...lines];
+        updateLines[drawingRef.current] = {
+            ...updateLines[drawingRef.current],
+            x2: e.clientX,
+            y2: e.clientY
+        }
+
+        setlines(updateLines)
+        }
+
+        if(moveableDiv>=0){
+            const updateNode = [...nodes];
+            updateNode[moveableDiv]={
+                x:e.clientX,
+                y:e.clientY
+            }
+            setnodes(updateNode)
+            const updateLines = [...lines];
+            updateLines[drawingRef.current]={
+                ...updateLines[drawingRef.current],
+                x1:e.clientX,
+                y1:e.clientY
+            }
+        }
+
+    }
+    const handlemouseUp = (e) => {
+        e.stopPropagation()
+        drawingRef.current = null;
+        setmoveableDiv(null)
+    }
+
+    const handleLineMosueDown = (ind) => {
+        console.log("handleLineClick")
+        drawingRef.current = ind;
+    }
+
+    const handleDivClick = (e,i)=>{
         e.stopPropagation();
-        setshowNodeOptions((prev) => {
-            return { ...prev, [key]: !prev[key] }
-        })
+        setmoveableDiv(i)
     }
 
-    const handleCreateNode = (className) => {
-        return <div contentEditable className={className}>
-
-        </div>
-    }
-
-    useEffect(() => {
-        const handleMouseDown = (event) => {
-            console.log("mousedown")
-
-            console.log(event.target !== circleRef.current)
-            console.log(event.target)
-            console.log(showNodeOptions.circleOptions)
-
-            if (event.target !== circleRef.current && (showNodeOptions.circleOptions)) {
-
-                setshowNodeOptions((prev) => {
-                    return {
-                        ...prev,
-                        circleOptions: prev.circleOptions ? false : true
-                    }
-                })
-            }
-
-            if (event.target !== squareRef.current && showNodeOptions.squareOptions) {
-                setshowNodeOptions((prev) => {
-                    return {
-                        ...prev,
-                        squareOptions: false
-                    }
-                })
-            }
-
-        }
-
-        window.addEventListener("mousedown", handleMouseDown)
-
-        return () => window.removeEventListener("mousedown", handleMouseDown)
-    }, [showNodeOptions])
-
-    function getCenter(el) {
-        console.log(el)
-        const rect = el.getBoundingClientRect();
-        return {
-            x: rect.left + rect.width / 2,
-            y: rect.top + rect.height / 2
-        }
-    }
-
-    useEffect(() => {
-        const hadnleMouseMove = (e) => {
-            const box1Center = getCenter(div1Ref?.current);
-            console.log(box1Center)
-            const line = lineRef.current;
-
-           
-            line.setAttribute("x2", e.clientX);
-            line.setAttribute("y2", e.clientY);
-
-        }
-
-        const handleClick = (e)=>{
-             const line = lineRef.current;
-             const container = document.querySelector(".cont")
-             const rect = container.getBoundingClientRect()
-
-            line.setAttribute("x1", rect.left - e.clientX);
-            line.setAttribute("y1", rect.top - e.clientY);
-        }
-
-        document.addEventListener("mousemove", hadnleMouseMove)
-        document.addEventListener("click",handleClick)
-
-        return () => document.removeEventListener("mousedown", handleMouseDown)
-    }, [])
-
+  
 
     return (
-        <div className='h-screen w-screen px-5 py-6'>
-            <div className='h-full w-full flex-col flex'>
-                <h1 className='text-center text-2xl font-semibold'>MindMap-App</h1>
-                <header className='w-full mt-2 py-3'>
-                    <div className='w-full flex border justify-center gap-4 py-2 items-center'>
-                        <h3>Choose node type</h3>
-                        <div className="circle relative flex justify-center items-center">
-                            <div className='cursor-pointer h-6 w-6 rounded-full border'>
+        <div onMouseUp={handlemouseUp} onMouseMove={handleMouseMove} ref={containerRef} onDoubleClick={handleCreateNode} className='min-h-screen w-screen border relative overflow-scroll'>
+            {/* <h1 className='text-center text-3xl font-semibold'>MindMap-app</h1> */}
+            <svg className='absolute  w-full h-full'>
+                {
+                    lines.length > 0 && lines.map((item, i) => (
+                        <line onMouseDown={() => handleLineMosueDown(i)} key={i} stroke='blue' strokeWidth="4" x1={item.x1} y1={item.y1} x2={item.x2} y2={item.y2}>
+                            line
 
-                            </div>
-                            <i ref={circleRef} onClick={(e) => handleNodeOptions(e, "circleOptions")} className={`ri-arrow-down-s-line ${showNodeOptions.circleOptions ? "rotate-0" : "rotate-180"}`}></i>
-                            <div className={`circle-options absolute  h-32 w-28 -right-22 bg-white z-50 top-6  transition-all shadow-md shadow-gray-600 duration-300 ${showNodeOptions.circleOptions ? " translate-y-0 " : "-translate-y-[2%] opacity-0"} overflow-scroll no-scrollbar flex flex-wrap `}>
-                                <div className="h-8 w-8 rounded-full  border-dashed border m-2"></div>
-                                <div className="h-8 w-8 rounded-full bg-purple-600 border-dashed- border-2 m-2"></div>
-                                <div className="h-8 w-8 rounded-full bg-red-400 border-dashed  border m-2"></div>
-                                <div className="h-8 w-8 rounded-full  border m-2"></div>
-                                <div className="h-8 w-8 rounded-full bg-orange-300 border-2 border-blue-500 m-2"></div>
-                                <div className="h-8 w-8 rounded-full bg-teal-400 shadow-md shadow-gray-500 m-2"></div>
+                        </line>
+                    ))
+                }
 
-                            </div>
+            </svg>
 
-                        </div>
-                        <div className="square relative flex justify-center items-center">
-                            <div className='cursor-pointer h-6 w-6 border'>
+            {
+                nodes.length > 0 && nodes.map((node, i) => (
+                    <div contentEditable onClick={(e)=>handleDivClick(e,i)} onMouseDown={handdivMouseDown} key={i} style={{ top: node.y, left: node.x }} className='absolute select-none h-12 w-12 border rounded-full bg-pink-700 flex justify-center items-center overflow-scroll no-scrollbar text-[10px] text-white '>
+                        hello
 
-                            </div>
-                            <i ref={squareRef} onClick={(e) => handleNodeOptions(e, "squareOptions")} className={`ri-arrow-down-s-line z-50 ${showNodeOptions.squareOptions ? "rotate-0" : "rotate-180"}`}></i>
-                            <div className={`square-options absolute rounded h-32 w-28 -right-28 bg-white z-50 top-0 transition-all shadow-md shadow-gray-600 duration-300 ${!showNodeOptions.squareOptions ? "-translate-y-[2%] opacity-0" : "-translate-y-0"} overflow-scroll no-scrollbar flex flex-wrap`}>
-
-                                <div className="h-8 w-8  border-dashed border m-2"></div>
-                                <div className="h-8 w-8 bg-purple-600 border-dashed- border-2 m-2"></div>
-                                <div className="h-8 w-8 bg-red-400 border-dashed rounded border m-2"></div>
-                                <div className="h-8 w-8  border m-2"></div>
-                                <div className="h-8 w-8 bg-orange-300 rounded-lg border-2 border-blue-500 m-2"></div>
-                                <div className="h-8 w-8 bg-teal-400 shadow-md shadow-gray-500 m-2"></div>
-
-                            </div>
-
-                        </div>
                     </div>
-                </header>
-
-            </div>
-
-
-            <div className='flex w-full cont mb-3 pb-5 justify-around gap-30'>
-                <div ref={div1Ref} className='h-24  w-24 border bg-pink-400 '>
-                    
-                </div>
-
-                <div className='h-24 w-24 border bg-purple-500'>
-
-                </div>
-                <svg id="lineCanvas" class="absolute  w-full h-full">
-                        <line ref={lineRef} id="line" x1="0" y1="0" x2="0" y2="0" stroke="black" stroke-width="2" />
-                    </svg>
+                ))
+            }
 
 
-            </div>
         </div>
     )
 }
