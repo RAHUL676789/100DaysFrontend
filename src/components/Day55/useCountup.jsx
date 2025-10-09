@@ -19,7 +19,7 @@ export const useCountup = (targetValue, duration = 500) => {
                 requestAnimationFrame(animate);
             }
         }
-         requestAnimationFrame(animate);
+         requestAnimationFrame(animate); 
     }, [targetValue, duration])
 
     return count;
