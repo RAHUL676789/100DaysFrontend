@@ -9,6 +9,7 @@ import MindMap from './components/Day54/MindMap.jsx'
 import ExpenseTracker from './components/Day55/ExpenseTracker.jsx'
 // import Counter from './components/Day56/Counter.jsx'
 import ReactionSpeed from './components/Day56/ReactionSpeed.jsx'
+import TypingSpeed from './components/Day57/TypingSpeed.jsx'
 
 
 
@@ -23,7 +24,7 @@ const App = () => {
     <div className=''>
       {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-     <ReactionSpeed/>
+     <TypingSpeed/>
       </ErrorBoundary>
     </div>
   )
