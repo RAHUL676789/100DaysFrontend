@@ -1,124 +1,238 @@
-import React, { useState, useEffect, useRef } from "react";
-import { quotes } from "./quotes.js";
+import React, { useState, useEffect, useRef } from 'react'
+import { quotes } from "./quotes.js"
 
 const TypingSpeed = () => {
-  const [time, setTime] = useState(1);
-  const [timerValue, setTimerValue] = useState(0);
-  const [typingData, setTypingData] = useState("");
-  const [inputValue, setInputValue] = useState("");
-  const [results, setResults] = useState(null);
-  const [hasStarted, setHasStarted] = useState(false);
+  const [quotesIndex, setquotesIndex] = useState(0);
+  const [words, setwords] = useState(quotes[quotesIndex].split(" ") || []);
+  const [currentWordIndex, setcurrentWordIndex] = useState(0);
+  const [typeChar, settypeChar] = useState("");
+  const [typeCharIndex, settypeCharIndex] = useState(0);
+  const [accuracy, setaccuracy] = useState(0);
+  const [wpm, setwpm] = useState(0);
+  const [inputValue, setinputValue] = useState("");
+  const wordsRef = useRef([]);
   const timerRef = useRef(null);
+  const [timer, settimer] = useState(null);
+  const [timeValue, settimeValue] = useState(1);
+  const [showResult, setshowResult] = useState(false);
 
-  // initialize timer
-  useEffect(() => {
-    setTimerValue(time * 60);
-  }, [time]);
+  const handleNextQuotes = () => {
+    const index = Math.floor(Math.random() * quotes.length);
+    setquotesIndex(index);
+    setcurrentWordIndex(0);
+    settypeCharIndex(0);
+    setinputValue("");
+    setaccuracy(0);
+    setwpm(0);
+  };
 
-  // select random quote on mount
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * quotes.length);
-    setTypingData(quotes[randomIndex]);
-  }, []);
+    setwords(quotes[quotesIndex].split(" "));
+  }, [quotesIndex]);
 
-  // stop timer when reaches 0
   useEffect(() => {
-    if (timerValue <= 0 && timerRef.current) {
+    const handleKeyDown = (e) => {
+      if (e.key === " " && e.code === "Space" && inputValue !== "") {
+        handleAccuracy();
+      } else if (![" ", "Backspace", "Shift", "Alt"].includes(e.key)) {
+        settypeCharIndex((prev) => prev + 1);
+      }
+
+      if (e.key === "Backspace") {
+        if (typeCharIndex === 0 && currentWordIndex > 0) {
+          setcurrentWordIndex((prev) => (prev > 0 ? prev - 1 : 0));
+        } else if (typeCharIndex > 0) {
+          settypeCharIndex((prev) => prev - 1);
+        }
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [inputValue]);
+
+  function handleAccuracy() {
+    const currentWord = words[currentWordIndex];
+    if (currentWord === inputValue.trim()) setaccuracy((prev) => prev + 1);
+
+    settypeCharIndex(0);
+    setcurrentWordIndex((prev) => prev + 1);
+    setinputValue("");
+    settypeChar("");
+    setwpm((prev) => prev + 1);
+  }
+
+  function inputChange(e) {
+    setinputValue(e.target.value);
+    if (!timerRef.current) {
+      timerRef.current = setInterval(() => {
+        settimer((prev) => prev - 1);
+      }, 1000);
+    }
+  }
+
+  useEffect(() => {
+    settypeChar(inputValue.trim());
+  }, [inputValue]);
+
+  useEffect(() => {
+    const scrllElemnt = wordsRef.current[currentWordIndex];
+    if (scrllElemnt) {
+      scrllElemnt.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [currentWordIndex]);
+
+  useEffect(() => {
+    settimer(timeValue * 60);
+  }, [timeValue]);
+
+  useEffect(() => {
+    if (timer === 0) {
       clearInterval(timerRef.current);
-      timerRef.current = null;
-      handleShowResult();
+      setshowResult(true);
+      return;
     }
-  }, [timerValue]);
+  }, [timer]);
 
-  const handleStart = () => {
-    if (timerRef.current) clearInterval(timerRef.current);
-
-    timerRef.current = setInterval(() => {
-      setTimerValue((prev) => prev - 1);
-    }, 1000);
-    setHasStarted(true);
-  };
-
-  const handleStartTyping = (e) => {
-    if (!hasStarted) handleStart();
-    setInputValue(e.target.value);
-  };
-
-  const handleShowResult = () => {
-    const originalWords = typingData.trim().split(/\s+/);
-    const typedWords = inputValue.trim().split(/\s+/);
-
-    let correct = 0;
-    for (let i = 0; i < typedWords.length; i++) {
-      if (typedWords[i] === originalWords[i]) correct++;
-    }
-
-    const elapsedTime = time * 60 - timerValue;
-    const minutes = elapsedTime / 60;
-    const wpm = Math.round(correct / minutes || 0);
-    const accuracy = ((correct / originalWords.length) * 100).toFixed(2);
-
-    setResults({ accuracy, wpm });
-    setHasStarted(false);
+  const handleClose = () => {
+    setaccuracy(0);
+    setwpm(0);
+    setshowResult(false);
   };
 
   return (
-    <div className="h-screen w-screen bg-gray-800 flex flex-col justify-center items-center">
-      <div className="w-[75%] rounded-lg shadow-lg h-[90vh] bg-zinc-700 px-5 py-3 flex flex-col gap-3">
+    <div className="min-h-screen w-full bg-gradient-to-br from-zinc-900 via-zinc-800 to-black flex justify-center items-center px-4">
+      <div className="w-[80%] h-[100vh] bg-zinc-900/90 rounded-2xl border border-zinc-700 shadow-xl flex flex-col overflow-hidden backdrop-blur-sm">
+        
         {/* Header */}
-        <header className="flex flex-wrap justify-center gap-3 items-center">
-          <div
-            className={`text-red-400 flex gap-1 font-semibold ${
-              hasStarted && "animate-pulse"
-            }`}
-          >
-            <span>Time left:</span>
-            <p>
-              {Math.floor(timerValue / 60).toString().padStart(2, "0")}:
-              {Math.floor(timerValue % 60).toString().padStart(2, "0")}
-            </p>
-          </div>
-          <h1 className="text-2xl font-semibold text-white text-center">
-            ⚡ Typing Speed Test ⚡
+        <div className="flex flex-wrap justify-between items-center bg-zinc-800/70 border-b border-zinc-700 px-5 py-3 rounded-t-2xl">
+          <button 
+            onClick={handleNextQuotes} 
+            className="px-4 py-2 bg-gradient-to-r from-blue-500 to-blue-700 text-white font-semibold rounded-lg shadow-md hover:scale-105 transition-all duration-200">
+            Next Quote
+          </button>
+
+          <h1 className="text-xl md:text-3xl font-bold text-center flex-1 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-green-400 tracking-wide">
+            🚀 Typing Speed Test 💥
           </h1>
 
-          <label htmlFor="time" className="text-white mx-2">
-            Set Time (min):
-          </label>
-          <input
-            value={time}
-            onChange={(e) => setTime(Number(e.target.value))}
-            id="time"
-            type="number"
-            min={1}
-            max={5}
-            className="border bg-gray-300 text-center font-semibold rounded-lg w-16"
-          />
-        </header>
+          <div className="flex items-center gap-3 text-yellow-400 font-semibold tracking-wide">
+            <h3 className="text-sm md:text-base">Time Left:</h3>
+            <span className="text-xl font-bold">
+              {Math.floor(timer / 60).toString().padStart(2, "0")}:
+              {Math.floor(timer % 60).toString().padStart(2, "0")}
+            </span>
+          </div>
 
-        {/* Typing Text */}
-        <div className="flex-1 px-3 py-2 overflow-y-scroll no-scrollbar bg-zinc-800 rounded-lg text-gray-400 text-lg leading-8 tracking-wide">
-          {typingData}
+          <div className="flex items-center gap-2 ml-2">
+            <label htmlFor="time" className="text-sm text-gray-300">Set Time</label>
+            <input
+              value={timeValue}
+              onChange={(e) => settimeValue(e.target.value)}
+              min={1}
+              max={5}
+              type="number"
+              className="w-14 py-1 rounded-md bg-zinc-700 text-center text-gray-100 font-semibold focus:ring-2 ring-green-400 outline-none transition-all"
+            />
+          </div>
         </div>
 
-        {/* Typing Box */}
+        {/* Typing Section */}
+        <div className="flex-1 p-5 overflow-y-scroll no-scrollbar text-gray-200 text-lg leading-relaxed tracking-wide space-y-3 bg-zinc-800/60">
+          {words.map((word, wIndex) => (
+            <span
+              key={wIndex}
+              className={`inline-block mx-1 px-1.5 py-0.5 rounded-md ${
+                wIndex === currentWordIndex
+                  ? "bg-zinc-900 border border-yellow-400/40"
+                  : ""
+              }`}
+            >
+              {word.split("").map((char, charIndex) => {
+                const isCurrentWord = wIndex === currentWordIndex;
+                const isCurrentChar = charIndex === typeCharIndex && isCurrentWord;
+                const typedChar = typeChar[charIndex];
+                let color = "";
+
+                if (typedChar) {
+                  color =
+                    typedChar === char && isCurrentWord
+                      ? "text-green-400"
+                      : typedChar !== char && isCurrentWord
+                      ? "text-red-500"
+                      : "";
+                } else if (isCurrentChar) {
+                  color = "bg-orange-700 text-white font-semibold px-0.5 rounded";
+                }
+
+                return (
+                  <span
+                    ref={(el) => (wordsRef.current[wIndex] = el)}
+                    key={charIndex}
+                    className={`${color} transition-all duration-150`}
+                  >
+                    {char}
+                  </span>
+                );
+              })}
+            </span>
+          ))}
+        </div>
+
+        {/* Input */}
         <input
           value={inputValue}
-          onChange={handleStartTyping}
+          onChange={inputChange}
           type="text"
-          placeholder="Start typing here..."
-          className="w-full py-3 px-4 rounded-lg bg-gray-900 text-gray-200 outline-none"
+          placeholder="Start typing..."
+          className="w-full bg-zinc-900 border-t border-zinc-700 py-4 px-5 text-gray-100 text-lg font-semibold outline-none focus:ring-2 ring-green-500 transition-all placeholder-gray-400 rounded-b-2xl"
         />
       </div>
 
-      {results && (
-        <div className="mt-5 text-white text-lg bg-gray-700 px-5 py-3 rounded-lg shadow-md">
-          <p>
-            Accuracy: <strong>{results.accuracy}%</strong>
-          </p>
-          <p>
-            Words Per Minute: <strong>{results.wpm}</strong>
-          </p>
+      {/* Result Modal */}
+      {showResult && (
+        <div className="fixed inset-0 h-screen w-screen bg-black/70 backdrop-blur-sm flex flex-col justify-center items-center z-50">
+          <button
+            onClick={handleClose}
+            className="absolute top-10 right-10 px-5 py-2 bg-red-600 hover:bg-red-700 text-white font-semibold rounded-lg shadow-md transition-all"
+          >
+            Close
+          </button>
+          <h2 className="text-3xl font-bold text-white mb-10 tracking-wide">Result</h2>
+
+          <div className="flex flex-wrap justify-center items-center gap-12">
+            {/* Accuracy */}
+            <div className="flex flex-col items-center gap-3">
+              <h3 className="text-xl font-semibold text-white">Accuracy</h3>
+              <div className="relative h-32 w-32 flex items-center justify-center">
+                <div
+                  className="absolute h-full w-full rounded-full"
+                  style={{
+                    background: `conic-gradient(#22c55e ${Math.floor((accuracy / wpm) * 100) * 3.6}deg, #1f2937 0deg)`,
+                  }}
+                ></div>
+                <div className="absolute h-[85%] w-[85%] bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  {Math.floor((accuracy / wpm) * 100)}%
+                </div>
+              </div>
+            </div>
+
+            {/* WPM */}
+            <div className="flex flex-col items-center gap-3">
+              <h3 className="text-xl font-semibold text-white">WPM</h3>
+              <div className="relative h-32 w-32 flex items-center justify-center">
+                <div
+                  className="absolute h-full w-full rounded-full"
+                  style={{
+                    background: `conic-gradient(#06b6d4 ${Math.floor(wpm / timeValue) * 3.6}deg, #1f2937 0deg)`,
+                  }}
+                ></div>
+                <div className="absolute h-[85%] w-[85%] bg-gray-800 rounded-full flex items-center justify-center text-white font-bold text-xl">
+                  {Math.floor(wpm / timeValue)}
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       )}
     </div>
