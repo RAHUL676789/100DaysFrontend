@@ -374,7 +374,9 @@ const BulletShooter = () => {
                         className="px-4 py-2 rounded bg-transparent border border-green-800 text-green-200 hover:bg-green-900/10"
                         title="Rotate left (+5°)"
                     >
-                        ◀
+
+                          <i className="ri-arrow-left-circle-fill"></i>
+                       
                     </button>
 
                     {/* gun container */}
@@ -436,7 +438,8 @@ const BulletShooter = () => {
                         className="px-4 py-2 rounded bg-transparent border border-green-800 text-green-200 hover:bg-green-900/10"
                         title="Rotate right (-5°)"
                     >
-                        ▶
+                         <i className="ri-arrow-right-circle-fill"></i>
+                     
                     </button>
 
                     <button
