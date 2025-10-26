@@ -14,7 +14,8 @@ import DivFragements from './components/Day58/DivFragements.jsx'
 import GunAim from './components/Day58/GunAim.jsx'
 import GunShooting from './components/Day58/GunAim.jsx'
 import BulletTrigger from './components/Day58/BulletTrigger.jsx'
-import CordinateXY from './components/Day58/CordinateXY.jsx'
+// import CordinateXY from './components/Day58/CordinateXY.jsx'
+import BulletShooter from './components/Day58/BulletShooter.jsx'
 
 
 
@@ -29,7 +30,7 @@ const App = () => {
     <div className=''>
       {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-     <CordinateXY/>
+     <BulletShooter/>
       </ErrorBoundary>
     </div>
   )
