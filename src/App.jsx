@@ -16,6 +16,8 @@ import GunShooting from './components/Day58/GunAim.jsx'
 import BulletTrigger from './components/Day58/BulletTrigger.jsx'
 // import CordinateXY from './components/Day58/CordinateXY.jsx'
 import BulletShooter from './components/Day58/BulletShooter.jsx'
+import PlayerMovement from './components/Day59/PlayerMovement.jsx'
+import JsonTreeVisual from './components/Day60/JsonTreeVisual.jsx'
 
 
 
@@ -30,7 +32,7 @@ const App = () => {
     <div className=''>
       {/* <h1 className='text-4xl font-semibold text-center text-white'>Image Crop</h1> */}
       <ErrorBoundary>
-     <BulletShooter/>
+     <JsonTreeVisual/>
       </ErrorBoundary>
     </div>
   )
